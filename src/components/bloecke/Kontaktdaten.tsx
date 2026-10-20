@@ -3,7 +3,7 @@ import type { Einstellungen } from '@/lib/cms';
 
 export function Kontaktdaten({ einstellungen: e }: { einstellungen: Einstellungen }) {
   return (
-    <aside className="h-fit rounded-[var(--radius-karte)] bg-flaeche p-8 lg:sticky lg:top-32 lg:p-10">
+    <aside className="h-fit rounded-[var(--radius-karte)] bg-flaeche p-8 lg:sticky lg:top-36 lg:p-10">
       <h3 className="titel-3">{e.firmenname}</h3>
       <ul className="mt-6 space-y-5">
         <li className="flex gap-4">

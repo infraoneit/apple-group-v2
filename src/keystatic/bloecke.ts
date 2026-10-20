@@ -315,7 +315,7 @@ export function seitenBloecke(bildOrdner: string) {
       },
 
       standortkarte: {
-        label: 'Standortkarte (Google Maps)',
+        label: 'Standortkarte',
         itemLabel: (p) => p.fields.titel.value || 'Standortkarte',
         schema: fields.object({
           titel: text('Titel', { pflicht: true, max: 90 }),

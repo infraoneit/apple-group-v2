@@ -20,7 +20,7 @@ Inhabergeführtes Immobilienunternehmen, das die gesamte Wertschöpfungskette se
 
 ## Operating Context
 
-Deutschsprachige Schweiz, Region Bodensee (Kreuzlingen, Ermatingen, Kradolf-Schönenberg, Güttingen, Sitz in Tägerwilen). Inhalte werden über Keystatic gepflegt: lokal direkt in Dateien, online über GitHub, mit automatischem Netlify-Build. Das Kontaktformular sendet über Netlify Forms an `/__forms.html`.
+Deutschsprachige Schweiz, Region Bodensee (Kreuzlingen, Ermatingen, Kradolf-Schönenberg, Güttingen, Sitz in Tägerwilen). Inhalte werden über Keystatic gepflegt: lokal direkt in Dateien, online über GitHub, mit automatischem Netlify-Build. Die Kontaktseite zeigt ein festes Kartenbild (OpenStreetMap-Daten, selbst ausgeliefert) statt eines Formulars, Anfragen laufen über mailto-Links.
 
 ## Capabilities and Constraints
 

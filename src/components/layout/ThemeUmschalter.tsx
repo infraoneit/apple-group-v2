@@ -44,7 +44,7 @@ export function ThemeUmschalter({ className }: { className?: string }) {
       className={className ? className : 'inline-flex size-11 items-center justify-center rounded-md hover:text-akzent'}
     >
       {/* Vor der Hydration (bereit=false) zeigt der Knopf das Mondsymbol, passend zum Standard "dunkel". */}
-      {!bereit || !hell ? <Moon className="size-5" aria-hidden /> : <Sun className="size-5" aria-hidden />}
+      {!bereit || !hell ? <Moon className="size-6" aria-hidden /> : <Sun className="size-6" aria-hidden />}
     </button>
   );
 }

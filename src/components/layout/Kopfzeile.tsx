@@ -129,7 +129,7 @@ export function Kopfzeile({ firmenname, logo, telefon, menue, knopf }: Props) {
         >
           Zum Inhalt springen
         </a>
-        <div className="container-seite flex h-20 items-center justify-between gap-4 lg:grid lg:h-24 lg:grid-cols-[1fr_auto_1fr] 3xl:h-28">
+        <div className="container-seite flex h-24 items-center justify-between gap-4 lg:grid lg:h-28 lg:grid-cols-[1fr_auto_1fr] 3xl:h-32">
           <Link
             href="/"
             className="flex shrink-0 items-center lg:justify-self-start"
@@ -172,7 +172,7 @@ export function Kopfzeile({ firmenname, logo, telefon, menue, knopf }: Props) {
                     <Link
                       href={punkt.link}
                       className={cn(
-                        'inline-flex items-center rounded-md py-2 pl-3 text-[0.95rem] font-medium transition-colors hover:text-akzent 2xl:text-base 3xl:text-lg',
+                        'inline-flex items-center rounded-md py-2 pl-3 text-base font-medium transition-colors hover:text-akzent 2xl:text-lg 3xl:text-xl',
                         hatUntermenue ? 'pr-1' : 'pr-3',
                         istAktiv(punkt.link) && 'text-akzent'
                       )}
@@ -239,9 +239,9 @@ export function Kopfzeile({ firmenname, logo, telefon, menue, knopf }: Props) {
               <ThemeUmschalter />
               <a
                 href={telefonLink}
-                className="hidden items-center gap-2 px-3 text-[0.95rem] font-medium whitespace-nowrap hover:text-akzent xl:inline-flex 2xl:text-base"
+                className="hidden items-center gap-2 px-3 text-base font-medium whitespace-nowrap hover:text-akzent xl:inline-flex 2xl:text-lg"
               >
-                <Phone className="size-4" aria-hidden />
+                <Phone className="size-5" aria-hidden />
                 {telefon}
               </a>
               {hatKnopf ? (
@@ -279,7 +279,7 @@ export function Kopfzeile({ firmenname, logo, telefon, menue, knopf }: Props) {
         inert={!offen}
         aria-hidden={!offen}
         className={cn(
-          'fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-grund transition-[opacity,transform,visibility] duration-300 ease-out lg:hidden',
+          'fixed inset-x-0 top-24 bottom-0 z-40 overflow-y-auto bg-grund transition-[opacity,transform,visibility] duration-300 ease-out lg:hidden',
           offen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'
         )}
       >

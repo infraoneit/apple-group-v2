@@ -126,7 +126,7 @@
   html {
     scroll-behavior: smooth;
     /* Anker (z. B. #formular) nicht unter der fixierten Kopfzeile verstecken */
-    scroll-padding-top: 7rem;
+    scroll-padding-top: 8rem;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -277,6 +277,11 @@
   .vitrine-licht {
     @apply pointer-events-none absolute inset-0 -z-10;
     background: radial-gradient(65% 60% at 50% 40%, color-mix(in srgb, var(--color-gold) 32%, transparent), transparent 72%);
+  }
+  /* Kartenbild auf der Kontaktseite: im dunklen Standardmodus abgedunkelt und leicht entsättigt,
+     damit es sich in die Vitrine einfügt statt als helle Fläche zu leuchten. Im hellen Modus unverändert. */
+  :root:not([data-theme='light']) .karte-bild {
+    filter: brightness(0.55) contrast(1.08) saturate(0.7);
   }
   .vitrine-plakette {
     @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-gold uppercase;
