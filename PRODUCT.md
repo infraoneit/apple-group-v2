@@ -32,7 +32,7 @@ Name: Apple Property Group AG. Bestehendes Signet (Apfel-Monogramm "APG" in Rose
 
 Seit der Neugestaltung "Die Vitrine" (September 2026, inspiriert von Cartier, Tiffany, Rolex u. a.) gilt: Rose Gold bleibt die reale Signetfarbe (`--color-marke: #9a5c4a`) auf hellen Flächen, ein helleres Blattgold (`--color-gold: #cda27a`) trägt dieselbe Familie auf dunklen "Vitrinen"-Flächen weiter. Überschriften in Cormorant (vorher Titillium Web), Fliesstext weiterhin in Inter.
 
-Seit dem 23. September 2026 ist Dunkel der Standardmodus der ganzen Website (nicht nur einzelner Abschnitte), mit einem nicht aufdringlichen Umschalter in der Kopfzeile zu einem hellen Modus (`ThemeUmschalter.tsx`, Zustand in `localStorage`). Details und Begründung in DESIGN.md.
+Seit dem 23. September 2026 ist Dunkel der Standardmodus der ganzen Website, mit einem nicht aufdringlichen Umschalter in der Kopfzeile zu einem durchgehend hellen Modus (seit dem 20. Oktober 2026 auch Hero, Projekte, Team und Fusszeile hell, in drei Helligkeitsstufen) (`ThemeUmschalter.tsx`, Zustand in `localStorage`). Details und Begründung in DESIGN.md.
 
 ## Evidence on Hand
 

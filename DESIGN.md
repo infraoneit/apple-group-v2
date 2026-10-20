@@ -71,14 +71,14 @@ components:
 
 Jedes Projekt liegt wie ein einzelnes Schmuckstück in einer eigenen Vitrine: gerahmt von einer dünnen Blattgoldlinie, unter einem weichen Lichtkreis, auf tiefem, samtigem Schwarzbraun. Das System übersetzt die Sprache von Cartier, Tiffany und Rolex, nicht als Farbwechsel, sondern als Materialwechsel: Wo die Vorlage bisher flache Kacheln auf hellem Grund zeigte, hängt jetzt jedes Bild in einem eigenen, beleuchteten Rahmen.
 
-Seit dem 23. September 2026 ist Dunkel der Standardmodus der ganzen Website, nicht nur einzelner Abschnitte. Ein nicht aufdringlicher Umschalter in der Kopfzeile (`ThemeUmschalter.tsx`, Mond- und Sonnensymbol) führt zu einem hellen Modus, die Wahl bleibt in `localStorage` gemerkt. Technisch trägt jede Farbe, die sich mit dem Modus ändert, den Namen `--color-akzent` und ihre Neutraltöne (`grund`, `flaeche`, `text`, `text-leise`, `linie`): im dunklen Standardmodus ist Akzent das Blattgold, im hellen Modus die reale Signetfarbe. Das reale Firmensignet hat einen echten transparenten Hintergrund (kein weisser Kasten) und funktioniert deshalb unverändert auf beiden Flächen, `logo` und `logohell` in Keystatic zeigen bewusst auf dieselbe Datei. Die "Vitrine" selbst, also Hero, Projektkarten, Team und Fusszeile, bleibt unabhängig vom Umschalter immer dunkel (`--color-flaeche-dunkel`), das ist die eine Konstante, um die sich der Rest des Systems dreht. Überschriften sind durchgängig in Cormorant, einer feinen, gravierten Serife, wie eine Gravur auf einer Plakette.
+Seit dem 23. September 2026 ist Dunkel der Standardmodus der ganzen Website, nicht nur einzelner Abschnitte. Ein nicht aufdringlicher Umschalter in der Kopfzeile (`ThemeUmschalter.tsx`, Mond- und Sonnensymbol) führt zu einem hellen Modus, die Wahl bleibt in `localStorage` gemerkt. Technisch trägt jede Farbe, die sich mit dem Modus ändert, den Namen `--color-akzent` und ihre Neutraltöne (`grund`, `flaeche`, `text`, `text-leise`, `linie`): im dunklen Standardmodus ist Akzent das Blattgold, im hellen Modus die reale Signetfarbe. Das reale Firmensignet hat einen echten transparenten Hintergrund (kein weisser Kasten) und funktioniert deshalb unverändert auf beiden Flächen, `logo` und `logohell` in Keystatic zeigen bewusst auf dieselbe Datei. Die "Vitrine" selbst, also Hero, Projektkarten, Team und Fusszeile (`--color-flaeche-dunkel`), folgt seit dem 20. Oktober 2026 ebenfalls dem Umschalter: tiefstes Schwarzbraun im dunklen, tieferes Creme im hellen Modus. Die Konstante ist nicht mehr die Dunkelheit, sondern die Raumfolge in drei Helligkeitsstufen. Überschriften sind durchgängig in Cormorant, einer feinen, gravierten Serife, wie eine Gravur auf einer Plakette.
 
 Bestätigte Abgrenzung: keine vollflächigen Farbbänder, kein Baukasten-Rahmen um Karten, keine Stockfotografie, keine erfundenen Kennzahlen oder Kundenstimmen. Was hier steht, ist immer echt: echte Projekte, echtes Team, echte Adresse.
 
 **Key Characteristics:**
 - Jedes Bild liegt in einem eigenen goldgerahmten Fenster mit weichem Lichtkreis dahinter, nie als flächiges Hintergrundbild
 - Dunkel ist der Standardmodus der ganzen Website, ein nicht aufdringlicher Umschalter in der Kopfzeile führt zu Hell
-- Die Vitrine selbst (Hero, Projekte, Team, Fusszeile) bleibt in beiden Modi immer dunkel, das ist die feste Bühne
+- Die Vitrine (Hero, Projekte, Team, Fusszeile) ist im dunklen Modus die tiefste, im hellen Modus die cremefarbene Fläche, in beiden Modi als eigener Raum erkennbar
 - Cormorant für Überschriften (eine gravierte Serife), Inter für Fliesstext und Bedienelemente
 - Rose Gold (helle Signetfarbe) und Blattgold (dunkler Modus) sind dieselbe Familie, gesteuert über einen einzigen Akzent-Token
 - Präzise, knappe Kanten (3 bis 4 px), keine weichen Baukasten-Rundungen
@@ -91,7 +91,7 @@ Ein Akzent-Token, zwei Stimmungen: Blattgold im dunklen Standardmodus, Signet-Br
 - **Akzent** (dunkler Modus `#cda27a` Blattgold, heller Modus `#9a5c4a` Signet-Braun): Primärlinks, Fokusringe, Labels, Hover-Akzente auf Flächen, die mit dem Umschalter wechseln.
 - **Akzent Dunkel** (dunkler Modus `#a97f56`, heller Modus `#7a4839`): Hover-Zustand von Akzent-Elementen.
 - **Signet-Braun** (`#9a5c4a`, fest): die reale Farbe des Firmenzeichens, unabhängig vom Modus. Trägt den gefüllten Primärknopf (`knopf-primaer`), damit die Handlungsaufforderung immer dieselbe, wiedererkennbare Markenfarbe zeigt.
-- **Blattgold** (`#cda27a`, fest): dieselbe Farbfamilie, für Stellen, die unabhängig vom Umschalter immer dunkel sind (Vitrinen-Rahmenlinien, `vitrine-plakette`, Fokusringe innerhalb dunkler Abschnitte).
+- **Blattgold** (dunkler Modus `#cda27a`, heller Modus `#9a5c4a`): dieselbe Farbfamilie für die Vitrinen-Abschnitte (Rahmenlinien, `vitrine-plakette`, Fokusringe). Wechselt im hellen Modus auf die Signetfarbe, damit sie auf Creme lesbar bleibt.
 
 ### Neutral
 - **Grund** (dunkler Modus `#2c2319`, heller Modus `#ffffff`): Seitenhintergrund, wechselt mit dem Umschalter.
@@ -104,7 +104,7 @@ Ein Akzent-Token, zwei Stimmungen: Blattgold im dunklen Standardmodus, Signet-Br
 ### Named Rules
 **Die Rahmen-Regel.** Ein Projektbild bekommt nie ein volles Hintergrundbild mit Text darüber. Es liegt immer gerahmt (`.vitrine-rahmen`) mit Lichtkreis (`.vitrine-licht`) auf dunklem Samt, so wie ein Stück in einer Vitrine liegt, nie wie eine Tapete.
 
-**Die Bühnen-Regel.** Hero, Projektkarten, Team und Fusszeile bleiben in beiden Modi immer dunkel (`.bg-flaeche-dunkel`). Nur die Flächen dazwischen (Kopfzeile, Lesetexte, Formulare, rechtliche Seiten) folgen dem Umschalter, mit einem spürbar helleren Wert als die Vitrinen-Bühne. So bleibt die Vitrine selbst immer die Bühne, in beiden Modi als eigener, dunklerer Raum erkennbar.
+**Die Bühnen-Regel.** Hero, Projektkarten, Team und Fusszeile sind die Vitrine (`.bg-flaeche-dunkel`): im dunklen Standardmodus die tiefste Fläche, im hellen Modus ein tieferes Creme (`#f1e8dc`). Seit dem 20. Oktober 2026 folgt auch die Vitrine dem Umschalter, auf Wunsch der Kundschaft wird die ganze Website hell. Die Raumfolge bleibt in beiden Modi über drei Stufen erkennbar: Grund (Weiss), Fläche (Elfenbein `#faf6f0`) und Vitrine (Creme). Das Blattgold wechselt im hellen Modus auf die Signetfarbe, damit Plaketten und Rahmen lesbar bleiben.
 
 ## Typography
 
@@ -169,7 +169,7 @@ Felder folgen dem Umschalter (`bg-grund`, `border-linie`, Fokusrahmen in Akzent)
 ### Do:
 - **Do** jedes Projektbild in einem Goldrahmen mit Lichtkreis zeigen (`.vitrine-rahmen` + `.vitrine-licht`), nie als flächiges Hintergrundbild.
 - **Do** neue Textfarben, Ränder und Hintergründe über die Token `akzent`, `grund`, `flaeche`, `text`, `text-leise`, `linie` setzen, nie über feste Tailwind-Farben wie `bg-white` oder `text-marke`, sonst reagieren sie nicht auf den Umschalter.
-- **Do** die Vitrinen-Bühne (Hero, Projekte, Team, Fusszeile) immer dunkel halten (`.bg-flaeche-dunkel`), unabhängig vom Umschalter.
+- **Do** die Vitrinen-Bühne (Hero, Projekte, Team, Fusszeile) über `.bg-flaeche-dunkel` setzen, nie über eine feste Farbe. So folgt sie dem Umschalter und bleibt in beiden Modi die eigene Stufe der Raumfolge.
 - **Do** Cormorant nur für Überschriften verwenden, Inter für alles Bedienbare und Lesbare.
 - **Do** Fokusringe: Akzentfarbe als Standard, Gold nur innerhalb von `.bg-flaeche-dunkel`- oder `.text-text-hell`-Abschnitten.
 

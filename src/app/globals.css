@@ -18,8 +18,8 @@
    * <html>, siehe die Überschreibung weiter unten). --color-marke ist die reale, feste
    * Signetfarbe (unabhängig vom Modus). --color-akzent ist die Akzentfarbe für Text,
    * Linien und Fokusringe: Blattgold im dunklen Standardmodus, die Signetfarbe im hellen
-   * Modus. --color-gold bleibt zusätzlich als eigener Wert bestehen für Stellen, die
-   * unabhängig vom Umschalter immer dunkel sind (Hero, Projekte, Team, Fusszeile).
+   * Modus. --color-gold ist die Farbe der Vitrinen-Abschnitte (Hero, Projekte, Team,
+   * Fusszeile) und wechselt im hellen Modus ebenfalls auf die Signetfarbe.
    */
   --color-marke: #9a5c4a;
   --color-marke-dunkel: #7a4839;
@@ -39,14 +39,18 @@
   --color-text-leise: #a8927c;
   --color-linie: #4c3b2c;
 
-  /* Die tiefste Fläche der Vitrine selbst: unabhängig vom Umschalter immer sehr dunkel,
-     deutlich tiefer als die Grundfläche, damit Hero und Projekte als eigener, dunklerer
-     Raum sichtbar bleiben statt mit dem Foyer zu verschmelzen. */
+  /* Die tiefste Fläche der Vitrine selbst: im dunklen Standardmodus deutlich tiefer als die
+     Grundfläche, damit Hero und Projekte als eigener Raum sichtbar bleiben statt mit dem Foyer
+     zu verschmelzen. Im hellen Modus wird sie zu einem tieferen Creme (siehe unten). */
   --color-flaeche-dunkel: #100b08;
   --color-flaeche-dunkel-2: #15100d;
   --color-text-hell: #f3ece3;
   --color-text-hell-leise: #a8927c;
   --color-linie-dunkel: #2c2119;
+
+  /* Schatten des Vitrinenrahmens, im hellen Modus weicher und warm statt schwarz */
+  --vitrine-schatten: rgba(0, 0, 0, 0.7);
+  --vitrine-schatten-innen: rgba(0, 0, 0, 0.4);
 
   /* Zusätzlicher Breakpoint für sehr breite Bildschirme (2200 px). In rem, damit er richtig nach 2xl sortiert wird */
   --breakpoint-3xl: 137.5rem;
@@ -93,18 +97,29 @@
 /*
  * HELLER MODUS
  * Wird per Umschalter gesetzt (data-theme="light" auf <html>, siehe ThemeUmschalter.tsx).
- * Überschreibt nur die Grundfläche, nicht die feste Signetfarbe, das Blattgold oder die
- * immer dunkle Vitrinenfläche (--color-flaeche-dunkel bleibt in beiden Modi dunkel).
+ * Die ganze Website wird hell, auch die Vitrinen-Abschnitte (Hero, Projekte, Team, Fusszeile).
+ * Die Raumfolge bleibt über drei Helligkeitsstufen erhalten: Weiss (Grund), warmes Elfenbein
+ * (Fläche) und ein tieferes Creme für die Vitrine (flaeche-dunkel). Das Blattgold wechselt auf
+ * die Signetfarbe, damit Plaketten, Rahmen und Fokusringe auf hellem Grund lesbar bleiben.
+ * Nur --color-marke bleibt fest, sie ist die reale Farbe des Signets.
  */
 :root[data-theme='light'] {
   --color-akzent: #9a5c4a;
   --color-akzent-dunkel: #7a4839;
+  --color-gold: #9a5c4a;
+  --color-gold-dunkel: #7a4839;
   --color-grund: #ffffff;
   --color-flaeche: #faf6f0;
   --color-text: #1c1714;
   --color-text-leise: #5b524c;
   --color-linie: #e6ded8;
-  --color-flaeche-dunkel-2: #1d1712;
+  --color-flaeche-dunkel: #f1e8dc;
+  --color-flaeche-dunkel-2: #e9ddcd;
+  --color-text-hell: #1c1714;
+  --color-text-hell-leise: #5b524c;
+  --color-linie-dunkel: #dccfbf;
+  --vitrine-schatten: rgba(90, 60, 40, 0.18);
+  --vitrine-schatten-innen: rgba(90, 60, 40, 0.08);
 }
 
 @layer base {
@@ -153,8 +168,8 @@
   }
 
   /* Fokusringe folgen --color-akzent (Blattgold im dunklen Standardmodus, Signetfarbe im
-     hellen Modus). Die immer dunkle Vitrinenfläche braucht unabhängig vom Umschalter
-     immer Gold, sonst wäre der Ring dort im hellen Modus kaum sichtbar. */
+     hellen Modus). In Vitrinen-Abschnitten gilt --color-gold, das im hellen Modus ebenfalls
+     auf die Signetfarbe wechselt. */
   :focus-visible {
     outline: 2px solid var(--color-akzent);
     outline-offset: 3px;
@@ -256,12 +271,12 @@
   .vitrine-rahmen {
     @apply relative overflow-hidden rounded-[var(--radius-karte)] border border-gold/55;
     box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.4) inset,
-      0 40px 100px -30px rgba(0, 0, 0, 0.7);
+      0 0 0 1px var(--vitrine-schatten-innen) inset,
+      0 40px 100px -30px var(--vitrine-schatten);
   }
   .vitrine-licht {
     @apply pointer-events-none absolute inset-0 -z-10;
-    background: radial-gradient(65% 60% at 50% 40%, rgba(205, 162, 122, 0.32), transparent 72%);
+    background: radial-gradient(65% 60% at 50% 40%, color-mix(in srgb, var(--color-gold) 32%, transparent), transparent 72%);
   }
   .vitrine-plakette {
     @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-gold uppercase;
