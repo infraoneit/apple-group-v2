@@ -1,0 +1,57 @@
+{
+  "seo": {},
+  "bloecke": [
+    {
+      "discriminant": "hero",
+      "value": {
+        "titel": "Immobilien, die Werte schaffen. Von der Vision bis zur Realisierung.",
+        "text": "Ganzheitliche Lösungen rund um Immobilien, mit Erfahrung, Leidenschaft und einem Anspruch an Qualität.",
+        "bild": "/bilder/startseite/bloecke/0/value/bild-nacht.jpg",
+        "bildAlt": "Architekturvisualisierung von drei Einfamilienhäusern in der Abenddämmerung, ein Neubauprojekt der Apple Property Group AG in Kreuzlingen",
+        "knopfPrimaer": {
+          "text": "Immobilien erkunden",
+          "link": "/referenzen"
+        },
+        "knopfSekundaer": {},
+        "variante": "vollbild",
+        "hoehe": "gross"
+      }
+    },
+    {
+      "discriminant": "textMitBild",
+      "value": {
+        "ueberzeile": "Über unser Unternehmen",
+        "titel": "Ganzheitliche Immobilienkompetenz",
+        "text": "Die Apple Property Group AG steht für ganzheitliche Immobilienkompetenz. Von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung begleiten wir ausgewählte Immobilienprojekte entlang der gesamten Wertschöpfungskette.\n\nDabei verbinden wir Immobilien-, Finanz- und Rechtsexpertise, um für unsere Kunden nachhaltige Werte und individuelle Lösungen zu schaffen. Die Apple Property Group AG wird inhaberbezogen geführt und begleitet Immobilien von der ersten Idee über die Entwicklung und Planung bis zur Realisierung und weiteren Betreuung.",
+        "bild": "/bilder/startseite/bloecke/1/value/bild.jpg",
+        "bildAlt": "Luftaufnahme einer neuen Wohnüberbauung mit Grünflächen, ein Immobilienprojekt der Apple Property Group AG",
+        "bildPosition": "rechts",
+        "knopf": {
+          "text": "Mehr über uns",
+          "link": "/ueber-uns"
+        }
+      }
+    },
+    {
+      "discriminant": "referenzen",
+      "value": {
+        "ueberzeile": "Projekte",
+        "titel": "Ausgewählte Projekte",
+        "anzahl": "4",
+        "linkText": "Alle Projekte"
+      }
+    },
+    {
+      "discriminant": "kontaktaufruf",
+      "value": {
+        "titel": "Interesse an einer unserer Immobilien?",
+        "text": "Wir beantworten Ihre Fragen zu Kauf, Miete oder einem eigenen Immobilienprojekt.",
+        "knopf": {
+          "text": "Anfrage senden",
+          "link": "mailto:info@apple-group.ch"
+        },
+        "telefonZeigen": true
+      }
+    }
+  ]
+}

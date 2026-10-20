@@ -1,0 +1,24 @@
+# Abhängigkeiten und Build
+node_modules
+.next
+out
+build
+*.tsbuildinfo
+next-env.d.ts
+
+# Geheimnisse: Keystatic schreibt die Zugangsdaten der GitHub-App in .env
+.env
+.env.*
+!.env.example
+
+# Netlify lokal
+.netlify
+
+# Logs und Systemdateien
+*.log
+.DS_Store
+Thumbs.db
+
+# Impeccable: nur lokale Sitzungszustände, PRODUCT.md/DESIGN.md und die Critique-Snapshots werden committet
+.impeccable/hook.cache.json
+.impeccable/live/

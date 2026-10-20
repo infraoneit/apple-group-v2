@@ -1,0 +1,372 @@
+@import 'tailwindcss';
+
+/*
+ * DESIGNSYSTEM
+ *
+ * Pro Projekt werden nur die Farben und Schriften unter @theme angepasst.
+ * Breiten, Abstände und Komponenten-Klassen bleiben gleich. Sie sind der Qualitätsstandard.
+ * Details: docs/08-design-und-qualitaet.md
+ */
+
+@theme {
+  /*
+   * DIE VITRINE
+   * Ein dunkler, samtiger Ausstellungsraum: jedes Projekt liegt wie ein einzelnes
+   * Schmuckstück unter einem Spot, gerahmt von einer dünnen Goldlinie statt einer Fläche.
+   * Dunkel ist die Grundeinstellung der ganzen Website, nicht nur einzelner Abschnitte.
+   * Hell lässt sich über den Umschalter in der Kopfzeile wählen (data-theme="light" auf
+   * <html>, siehe die Überschreibung weiter unten). --color-marke ist die reale, feste
+   * Signetfarbe (unabhängig vom Modus). --color-akzent ist die Akzentfarbe für Text,
+   * Linien und Fokusringe: Blattgold im dunklen Standardmodus, die Signetfarbe im hellen
+   * Modus. --color-gold bleibt zusätzlich als eigener Wert bestehen für Stellen, die
+   * unabhängig vom Umschalter immer dunkel sind (Hero, Projekte, Team, Fusszeile).
+   */
+  --color-marke: #9a5c4a;
+  --color-marke-dunkel: #7a4839;
+  --color-marke-hell: #f3e5de;
+  --color-gold: #cda27a;
+  --color-gold-dunkel: #a97f56;
+  --color-akzent: #cda27a;
+  --color-akzent-dunkel: #a97f56;
+
+  /* Grundfläche (Standard: dunkel). Im hellen Modus wird sie weiter unten überschrieben.
+     Bewusst spürbar heller als die feste Vitrinen-Bühne (--color-flaeche-dunkel*), damit
+     Foyer-Abschnitte (Kopfzeile, Lesetexte, Formulare) und Vitrinen-Abschnitte (Hero,
+     Projekte, Team, Fusszeile) auch im Dunkelmodus als zwei unterscheidbare Räume wirken. */
+  --color-grund: #2c2319;
+  --color-flaeche: #352a20;
+  --color-text: #f3ece3;
+  --color-text-leise: #a8927c;
+  --color-linie: #4c3b2c;
+
+  /* Die tiefste Fläche der Vitrine selbst: unabhängig vom Umschalter immer sehr dunkel,
+     deutlich tiefer als die Grundfläche, damit Hero und Projekte als eigener, dunklerer
+     Raum sichtbar bleiben statt mit dem Foyer zu verschmelzen. */
+  --color-flaeche-dunkel: #100b08;
+  --color-flaeche-dunkel-2: #15100d;
+  --color-text-hell: #f3ece3;
+  --color-text-hell-leise: #a8927c;
+  --color-linie-dunkel: #2c2119;
+
+  /* Zusätzlicher Breakpoint für sehr breite Bildschirme (2200 px). In rem, damit er richtig nach 2xl sortiert wird */
+  --breakpoint-3xl: 137.5rem;
+
+  /* Schriften: Variablen werden in src/app/schriften.ts gesetzt */
+  --font-sans: var(--font-text), ui-sans-serif, system-ui, sans-serif;
+  --font-titel: var(--font-ueberschrift), ui-serif, Georgia, serif;
+
+  /* Präzise, gravierte Kanten statt weicher Rundungen: das Vitrinenglas, nicht der Baukasten */
+  --radius-karte: 0.25rem;
+  --radius-knopf: 0.1875rem;
+
+  --animate-einblenden: einblenden 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes einblenden {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Das Licht geht an: Karten und Rahmen blenden mit einem kurzen Goldschimmer ein statt nur aufzusteigen */
+  @keyframes vitrine-licht {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      box-shadow: 0 0 0 rgba(205, 162, 122, 0);
+    }
+    60% {
+      box-shadow: 0 0 32px rgba(205, 162, 122, 0.22);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      box-shadow: 0 0 0 rgba(205, 162, 122, 0);
+    }
+  }
+}
+
+/*
+ * HELLER MODUS
+ * Wird per Umschalter gesetzt (data-theme="light" auf <html>, siehe ThemeUmschalter.tsx).
+ * Überschreibt nur die Grundfläche, nicht die feste Signetfarbe, das Blattgold oder die
+ * immer dunkle Vitrinenfläche (--color-flaeche-dunkel bleibt in beiden Modi dunkel).
+ */
+:root[data-theme='light'] {
+  --color-akzent: #9a5c4a;
+  --color-akzent-dunkel: #7a4839;
+  --color-grund: #ffffff;
+  --color-flaeche: #faf6f0;
+  --color-text: #1c1714;
+  --color-text-leise: #5b524c;
+  --color-linie: #e6ded8;
+  --color-flaeche-dunkel-2: #1d1712;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Anker (z. B. #formular) nicht unter der fixierten Kopfzeile verstecken */
+    scroll-padding-top: 7rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-grund font-sans text-text antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 1.125rem;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-titel text-balance;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    /* Lange deutsche Wörter (z. B. Elektroinstallateur/in) auf schmalen Handys trennen statt überlaufen lassen.
+       Bewusst kein overflow-wrap: break-word: dieser Notfall-Umbruch ignoriert hyphenate-limit-chars und trennt
+       sonst mitten im Wort ein einzelnes Zeichen ab (z. B. "Immobilienkompeten" / "z"), wenn text-balance eine
+       schmale Zeilenbreite wählt. hyphens:auto allein reicht für die Wörter dieser Website aus. */
+    hyphens: auto;
+    hyphenate-limit-chars: 9 4 4;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-gold text-flaeche-dunkel;
+  }
+
+  /* Fokusringe folgen --color-akzent (Blattgold im dunklen Standardmodus, Signetfarbe im
+     hellen Modus). Die immer dunkle Vitrinenfläche braucht unabhängig vom Umschalter
+     immer Gold, sonst wäre der Ring dort im hellen Modus kaum sichtbar. */
+  :focus-visible {
+    outline: 2px solid var(--color-akzent);
+    outline-offset: 3px;
+  }
+
+  .bg-flaeche-dunkel :focus-visible,
+  .text-text-hell :focus-visible {
+    outline-color: var(--color-gold);
+  }
+
+  /* Der Primärknopf bleibt Signet-Braun, bekommt aber innerhalb der festen Vitrinen-Bühne
+     (Hero) einen dünnen Goldrand, damit die wichtigste Handlung an die Vitrinen-Sprache
+     anknüpft statt als reines Nutzbraun neben dem Goldrahmen der Bilder zu stehen. */
+  .bg-flaeche-dunkel .knopf-primaer {
+    @apply border border-gold/60;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /*
+   * EINBLENDEN BEIM SCROLLEN
+   * Elemente mit data-einblenden werden von src/components/ui/Einblenden.tsx gesteuert:
+   *   data-einblenden="sofort"    beim Laden schon sichtbar, keine Animation
+   *   data-einblenden="sichtbar"  beim Scrollen erreicht, weich einblenden
+   * Bewusst eine Animation statt transition: Hover-Übergänge (transition-shadow usw.) auf
+   * denselben Elementen würden eine transition überschreiben.
+   * Ohne JavaScript, beim Drucken und bei "Bewegung reduzieren" bleibt alles sofort sichtbar.
+   */
+  .js-einblenden [data-einblenden]:not([data-einblenden='sofort'], [data-einblenden='sichtbar']) {
+    opacity: 0;
+  }
+  .js-einblenden [data-einblenden='sichtbar'] {
+    animation: einblenden-scroll 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--einblenden-index, 0) * 90ms);
+  }
+  @keyframes einblenden-scroll {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @media print, (prefers-reduced-motion: reduce) {
+    .js-einblenden [data-einblenden] {
+      opacity: 1 !important;
+      animation: none !important;
+    }
+  }
+  /*
+   * SEITENBREITE (Qualitätsstandard, übernommen von schaltkraft.ch)
+   * max 2400 px, Rand 24 / 32 / 48 px. Deutlich breiter als die üblichen 1280 px.
+   * Lange Fliesstexte werden separat mit .lesebreite begrenzt.
+   */
+  .container-seite {
+    @apply mx-auto w-full max-w-[2400px] px-6 sm:px-8 lg:px-12;
+  }
+
+  .lesebreite {
+    max-width: 72ch;
+  }
+
+  /* Vertikale Abstände: nur diese drei verwenden */
+  .abschnitt {
+    @apply py-16 lg:py-24;
+  }
+  .abschnitt-kompakt {
+    @apply py-12 lg:py-16;
+  }
+  .abschnitt-gross {
+    @apply py-20 lg:py-32;
+  }
+
+  .ueberzeile {
+    @apply mb-5 inline-flex items-center gap-3 text-xs font-semibold tracking-[0.24em] text-akzent uppercase;
+  }
+  .ueberzeile::before {
+    content: '';
+    @apply h-px w-10 bg-current;
+  }
+
+  /*
+   * VITRINE: der Rahmen und das Licht, unter dem ein einzelnes Stück liegt.
+   * .vitrine-rahmen umschliesst ein Bild mit einer feinen Goldlinie auf dunklem Samt.
+   * .vitrine-licht legt einen weichen Lichtkreis hinter den Rahmen.
+   */
+  .vitrine-rahmen {
+    @apply relative overflow-hidden rounded-[var(--radius-karte)] border border-gold/55;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.4) inset,
+      0 40px 100px -30px rgba(0, 0, 0, 0.7);
+  }
+  .vitrine-licht {
+    @apply pointer-events-none absolute inset-0 -z-10;
+    background: radial-gradient(65% 60% at 50% 40%, rgba(205, 162, 122, 0.32), transparent 72%);
+  }
+  .vitrine-plakette {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-gold uppercase;
+  }
+
+  /* Karussell-Galerie (Projekt-Detailseite): eigene Scrollleiste ausgeblendet, sanftes
+     Scrollen nur ohne reduzierte Bewegung, damit Klick auf Pfeil/Punkt nicht hart springt. */
+  .galerie-scroller {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .galerie-scroller::-webkit-scrollbar {
+    display: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .galerie-scroller {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Titel wachsen ab 2200 px (3xl) weiter, passend zur breiten Seite.
+     font-semibold (600) statt font-bold (700): DESIGN.md legt für Cormorant durchgängig
+     Schriftschnitt 600 fest, eine gravierte, feine Anmutung statt fetter Balken. */
+  .titel-1 {
+    @apply text-4xl font-semibold sm:text-5xl lg:text-6xl 2xl:text-7xl 3xl:text-8xl;
+  }
+  .titel-2 {
+    @apply text-3xl font-semibold sm:text-4xl lg:text-5xl 3xl:text-6xl;
+  }
+  .titel-3 {
+    @apply text-xl font-semibold lg:text-2xl 3xl:text-3xl;
+  }
+  .einleitung {
+    @apply text-lg text-text-leise lg:text-xl 3xl:text-2xl;
+    line-height: 1.6;
+  }
+
+  .knopf-primaer {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-knopf)] bg-marke px-7 py-3 text-base font-semibold tracking-[0.02em] text-white transition-colors duration-200 hover:bg-marke-dunkel disabled:cursor-not-allowed disabled:opacity-60 lg:min-h-14 lg:px-9;
+  }
+  .knopf-sekundaer {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-knopf)] border border-current px-7 py-3 text-base font-semibold tracking-[0.02em] transition-colors duration-200 hover:bg-text hover:text-grund lg:min-h-14 lg:px-9;
+  }
+  /* Auf dunklem Samt: die Goldlinie einer Vitrine statt eines weissen Rahmens */
+  .knopf-hell {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-knopf)] border border-gold/50 px-7 py-3 text-base font-semibold tracking-[0.02em] text-text-hell transition-colors duration-200 hover:border-gold hover:bg-gold hover:text-flaeche-dunkel lg:min-h-14 lg:px-9;
+  }
+
+  .formular-label {
+    @apply mb-2 block text-sm font-semibold;
+  }
+  .formular-feld {
+    @apply block w-full rounded-md border border-linie bg-grund px-4 py-3 text-base text-text transition-colors outline-none placeholder:text-text-leise/70 focus:border-akzent focus:ring-2 focus:ring-akzent/25;
+  }
+
+  /* Fliesstext aus Markdoc */
+  .fliesstext {
+    @apply text-text;
+  }
+  .fliesstext > * + * {
+    margin-top: 1.25em;
+  }
+  .fliesstext h2 {
+    @apply mt-14 text-3xl font-bold lg:text-4xl;
+  }
+  .fliesstext h3 {
+    @apply mt-10 text-2xl font-semibold;
+  }
+  .fliesstext h4 {
+    @apply mt-8 text-xl font-semibold;
+  }
+  .fliesstext a {
+    @apply font-medium text-akzent underline underline-offset-4 hover:text-akzent-dunkel;
+  }
+  .fliesstext ul {
+    @apply list-disc space-y-2 pl-6 marker:text-akzent;
+  }
+  .fliesstext ol {
+    @apply list-decimal space-y-2 pl-6 marker:text-akzent;
+  }
+  .fliesstext blockquote {
+    @apply border-l-4 border-akzent pl-6 text-xl text-text-leise italic;
+  }
+  .fliesstext hr {
+    @apply my-12 border-linie;
+  }
+  .fliesstext .abbildung {
+    @apply my-10 block;
+  }
+  .fliesstext .abbildung img {
+    @apply block w-full rounded-[var(--radius-karte)];
+  }
+  .fliesstext .abbildung-text {
+    @apply mt-3 block text-sm text-text-leise;
+  }
+  .fliesstext .tabelle-scroll {
+    @apply overflow-x-auto;
+  }
+  .fliesstext table {
+    @apply w-full border-collapse text-left text-base;
+  }
+  .fliesstext th {
+    @apply border-b-2 border-text py-3 pr-6 font-semibold;
+  }
+  .fliesstext td {
+    @apply border-b border-linie py-3 pr-6 align-top;
+  }
+}

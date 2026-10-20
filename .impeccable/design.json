@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-22T15:14:09Z",
+  "title": "Design System: Apple Property Group AG",
+  "extensions": {
+    "colorMeta": {
+      "marke": { "role": "brand-fixed", "displayName": "Signet-Braun", "canonical": "#9a5c4a" },
+      "marke-dunkel": { "role": "brand-fixed-hover", "displayName": "Signet-Braun Dunkel", "canonical": "#7a4839" },
+      "marke-hell": { "role": "brand-fixed-tint", "displayName": "Signet-Braun Blush", "canonical": "#f3e5de" },
+      "gold": { "role": "stage-fixed", "displayName": "Blattgold", "canonical": "#cda27a", "tonalRamp": ["#2a1d12", "#4a3320", "#6e4c2f", "#8f6540", "#b08052", "#cda27a", "#dfc0a0", "#efdec6"] },
+      "gold-dunkel": { "role": "stage-fixed-hover", "displayName": "Blattgold Dunkel", "canonical": "#a97f56" },
+      "akzent": { "role": "theme-accent", "displayName": "Akzent (Blattgold im Dunkelmodus, Standard)", "canonical": "#cda27a", "lightModeOverride": "#9a5c4a" },
+      "akzent-dunkel": { "role": "theme-accent-hover", "displayName": "Akzent Hover", "canonical": "#a97f56", "lightModeOverride": "#7a4839" },
+      "grund": { "role": "theme-bg", "displayName": "Grund (dunkel, Standard)", "canonical": "#2c2319", "lightModeOverride": "#ffffff" },
+      "flaeche": { "role": "theme-bg-alt", "displayName": "Fläche (dunkel, Standard)", "canonical": "#352a20", "lightModeOverride": "#faf6f0" },
+      "linie": { "role": "theme-border", "displayName": "Linie (dunkel, Standard)", "canonical": "#4c3b2c", "lightModeOverride": "#e6ded8" },
+      "text": { "role": "theme-text", "displayName": "Text (dunkel, Standard)", "canonical": "#f3ece3", "lightModeOverride": "#1c1714" },
+      "text-leise": { "role": "theme-text-muted", "displayName": "Text Leise (dunkel, Standard)", "canonical": "#a8927c", "lightModeOverride": "#5b524c" },
+      "flaeche-dunkel": { "role": "stage-bg-fixed", "displayName": "Vitrinen-Samt", "canonical": "#100b08" },
+      "flaeche-dunkel-2": { "role": "stage-bg-fixed-alt", "displayName": "Vitrinen-Samt Erhöht", "canonical": "#15100d", "lightModeOverride": "#1d1712" },
+      "linie-dunkel": { "role": "stage-border-fixed", "displayName": "Vitrinen-Linie", "canonical": "#2c2119" },
+      "text-hell": { "role": "stage-text-fixed", "displayName": "Text Creme", "canonical": "#f3ece3" },
+      "text-hell-leise": { "role": "stage-text-fixed-muted", "displayName": "Text Creme Leise", "canonical": "#a8927c" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Cormorant Display", "purpose": "H1/H2/H3-Überschriften, gravierte Serife, nie für Fliesstext." },
+      "body": { "displayName": "Inter Body", "purpose": "Fliesstext, Formulare, Navigation, Beschriftungen." }
+    },
+    "shadows": [
+      { "name": "vitrine-rahmen-schatten", "value": "0 0 0 1px rgba(0,0,0,0.4) inset, 0 40px 100px -30px rgba(0,0,0,0.7)", "purpose": "Hebt den goldgerahmten Bildkasten vom Samt ab." },
+      { "name": "header-scrolled", "value": "0 8px 30px -12px rgba(0,0,0,0.15)", "purpose": "Kopfzeile nach dem Scrollen." }
+    ],
+    "motion": [
+      { "name": "ease-vitrine", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Einblenden von Hero-Text und Vitrinen beim Laden." },
+      { "name": "duration-vitrine-licht", "value": "0.9s", "purpose": "Lichtschimmer-Einblendung beim Laden (vitrine-licht Keyframe)." },
+      { "name": "duration-card-hover", "value": "0.5s", "purpose": "Lichtkreis-Verstaerkung bei Projektkarten im Hover (bereits im Ruhezustand sichtbar, seit dem Polish-Durchgang vom 23. September 2026)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" },
+      { "name": "3xl", "value": "2200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Vitrinen-Rahmen (Projektbild)",
+      "kind": "card",
+      "refersTo": "vitrine-rahmen",
+      "description": "Jedes Projektbild liegt gerahmt und beleuchtet auf dunklem Samt, wie ein Stück in einer Vitrine.",
+      "html": "<div class=\"ds-vitrine\"><div class=\"ds-vitrine-licht\"></div><div class=\"ds-vitrine-rahmen\"><img src=\"https://placehold.co/480x360\" alt=\"\" /></div></div>",
+      "css": ".ds-vitrine { position: relative; aspect-ratio: 4 / 3; } .ds-vitrine-licht { position: absolute; inset: 0; z-index: -1; background: radial-gradient(65% 60% at 50% 40%, rgba(205,162,122,0.32), transparent 72%); } .ds-vitrine-rahmen { position: relative; height: 100%; overflow: hidden; border-radius: 4px; border: 1px solid rgba(205,162,122,0.55); box-shadow: 0 0 0 1px rgba(0,0,0,0.4) inset, 0 40px 100px -30px rgba(0,0,0,0.7); background: #15100d; } .ds-vitrine-rahmen img { width: 100%; height: 100%; object-fit: cover; }"
+    },
+    {
+      "name": "Plakette (Label auf Samt)",
+      "kind": "chip",
+      "refersTo": "vitrine-plakette",
+      "description": "Kleine, golden getrackte Beschriftung auf dunklem Grund, das Pendant zur hellen Ueberzeile.",
+      "html": "<p class=\"ds-plakette\">Projekte</p>",
+      "css": ".ds-plakette { display: inline-flex; align-items: center; gap: 8px; font-family: Inter, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #cda27a; }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Hauptaktion, Signet-Braun gefuellt. Innerhalb der festen Vitrinen-Buehne (.bg-flaeche-dunkel, z. B. Hero) zusaetzlich mit duennem Goldrand (border-gold/60), auf Foyer-Flaechen ohne Goldrand.",
+      "html": "<a class=\"ds-btn-primary ds-btn-primary--vitrine\" href=\"#\">Immobilien erkunden</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 14px 28px; background: #9a5c4a; color: #ffffff; font-family: Inter, sans-serif; font-weight: 600; font-size: 1rem; border-radius: 3px; text-decoration: none; transition: background-color 0.2s; } .ds-btn-primary:hover { background: #7a4839; } .ds-btn-primary:focus-visible { outline: 2px solid #9a5c4a; outline-offset: 3px; } .ds-btn-primary--vitrine { border: 1px solid rgba(205,162,122,0.6); }"
+    },
+    {
+      "name": "On-Dark Button",
+      "kind": "button",
+      "refersTo": "button-on-dark",
+      "description": "Sekundaerknopf auf dunklem Samt, z. B. Telefonnummer im Kontaktaufruf oder Hero.",
+      "html": "<a class=\"ds-btn-dark\" href=\"#\">+41 71 688 10 10</a>",
+      "css": ".ds-btn-dark { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 14px 28px; background: transparent; color: #f3ece3; font-family: Inter, sans-serif; font-weight: 600; font-size: 1rem; border: 1px solid rgba(205,162,122,0.5); border-radius: 3px; text-decoration: none; transition: all 0.2s; } .ds-btn-dark:hover { border-color: #cda27a; background: #cda27a; color: #15100d; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Formularfeld, folgt dem Hell/Dunkel-Umschalter (hier im dunklen Standardmodus gezeigt).",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-name\">Vorname und Name *</label><input class=\"ds-input\" id=\"ds-name\" type=\"text\" /></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; font-family: Inter, sans-serif; } .ds-label { margin-bottom: 8px; font-size: 0.875rem; font-weight: 600; color: #f3ece3; } .ds-input { width: 100%; padding: 12px 16px; background: #2c2319; border: 1px solid #4c3b2c; border-radius: 6px; font-size: 1rem; color: #f3ece3; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input:focus { border-color: #cda27a; box-shadow: 0 0 0 2px rgba(205,162,122,0.25); }"
+    },
+    {
+      "name": "Galerie-Karussell (Projekt-Detailseite, Bild-Hero)",
+      "kind": "carousel",
+      "refersTo": "galerie-scroller",
+      "description": "Titelbild plus alle Galeriebilder in einem Karussell, ersetzt seit 24.09.2026 das separate statische Titelbild. Ein Bild pro Ansicht in .vitrine-rahmen/.vitrine-licht, natives Scroll-Snap, Pfeile/Punkte/Zaehler als gleichwertige Kontrollen. Bei genau einem Bild ohne Kontrollen.",
+      "html": "<div class=\"ds-galerie\"><div class=\"ds-galerie-scroller\"><div class=\"ds-galerie-slide\"><img src=\"https://placehold.co/640x400\" alt=\"\" /></div></div><button class=\"ds-galerie-pfeil\" aria-label=\"Naechstes Bild\">&#8250;</button></div>",
+      "css": ".ds-galerie { position: relative; } .ds-galerie-scroller { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; } .ds-galerie-slide { flex-shrink: 0; width: 100%; scroll-snap-align: center; border-radius: 4px; border: 1px solid rgba(205,162,122,0.55); overflow: hidden; } .ds-galerie-pfeil { position: absolute; top: 50%; right: 12px; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(205,162,122,0.5); background: rgba(16,11,8,0.8); color: #f3ece3; }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "control",
+      "refersTo": "theme-umschalter",
+      "description": "Nicht aufdringlicher Umschalter zwischen dunklem Standardmodus und hellem Modus, in der Kopfzeile vor dem Kontakt-Knopf.",
+      "html": "<button class=\"ds-toggle\" type=\"button\" aria-pressed=\"false\" aria-label=\"Dunkle Ansicht aktiv, zur hellen Ansicht wechseln\">&#9789;</button>",
+      "css": ".ds-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 6px; background: transparent; color: currentColor; border: none; cursor: pointer; transition: color 0.2s; } .ds-toggle:hover { color: #cda27a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die Vitrine (Dunkelmodus als Standard)",
+    "overview": "Jedes Projekt liegt wie ein einzelnes Schmuckstueck in einer eigenen Vitrine: gerahmt von einer duennen Blattgoldlinie, unter einem weichen Lichtkreis, auf tiefem, samtigem Schwarzbraun. Das System uebersetzt die Sprache von Cartier, Tiffany und Rolex als Materialwechsel, nicht als Farbwechsel.\n\nSeit dem 23. September 2026 ist Dunkel der Standardmodus der ganzen Website, nicht nur einzelner Abschnitte. Ein nicht aufdringlicher Umschalter in der Kopfzeile (Mond- und Sonnensymbol) fuehrt zu einem hellen Modus, die Wahl bleibt in localStorage gemerkt. Alle Flaechen- und Textfarben, die mit dem Modus wechseln, haengen am Token 'akzent' und den Neutraltoenen 'grund', 'flaeche', 'text', 'text-leise', 'linie'. Die Vitrinen-Buehne selbst (Hero, Projektkarten, Team, Fusszeile) bleibt unabhaengig vom Umschalter immer dunkel. Das reale Firmensignet hat einen echten transparenten Hintergrund und funktioniert deshalb unveraendert auf beiden Flaechen. Ueberschriften sind durchgaengig in Cormorant, einer feinen, gravierten Serife.",
+    "keyCharacteristics": [
+      "Jedes Bild liegt in einem eigenen goldgerahmten Fenster mit Lichtkreis, nie als flaechiges Hintergrundbild",
+      "Dunkel ist der Standardmodus der ganzen Website, ein nicht aufdringlicher Umschalter in der Kopfzeile fuehrt zu Hell",
+      "Die Vitrinen-Buehne (Hero, Projekte, Team, Fusszeile) bleibt in beiden Modi immer dunkel",
+      "Cormorant fuer Ueberschriften, Inter fuer Fliesstext und Bedienelemente",
+      "Rose Gold (heller Modus) und Blattgold (dunkler Modus) sind dieselbe Familie, gesteuert ueber einen einzigen Akzent-Token",
+      "Praezise, knappe Kanten (3 bis 4 px), keine weichen Baukasten-Rundungen"
+    ],
+    "rules": [
+      { "name": "Die Rahmen-Regel", "body": "Ein Projektbild bekommt nie ein volles Hintergrundbild mit Text darueber. Es liegt immer gerahmt mit Lichtkreis auf dunklem Samt.", "section": "colors" },
+      { "name": "Die Buehnen-Regel", "body": "Hero, Projektkarten, Team und Fusszeile bleiben in beiden Modi immer dunkel. Nur die Flaechen dazwischen folgen dem Umschalter.", "section": "colors" },
+      { "name": "Die Ein-Licht-Regel", "body": "Jede Vitrine hat genau einen Lichtkreis hinter dem gerahmten Objekt. Kein zweites Leuchten, kein Glühen an anderen Kanten.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do jedes Projektbild in einem Goldrahmen mit Lichtkreis zeigen, nie als flaechiges Hintergrundbild.",
+      "Do neue Farben ueber die Token akzent, grund, flaeche, text, text-leise, linie setzen, nie ueber feste Tailwind-Farben.",
+      "Do die Vitrinen-Buehne (Hero, Projekte, Team, Fusszeile) immer dunkel halten, unabhaengig vom Umschalter.",
+      "Do Cormorant nur fuer Ueberschriften verwenden, Inter fuer alles Bedienbare und Lesbare.",
+      "Do Fokusringe: Akzentfarbe als Standard, Gold nur innerhalb dunkler Abschnitte."
+    ],
+    "donts": [
+      "Don't ein Projektbild vollflaechig mit Text darueber legen.",
+      "Don't eine ganze Sektion mit der Akzentfarbe fuellen.",
+      "Don't ein zweites Leuchten oder einen zweiten Schatten neben dem Vitrinenlicht hinzufuegen.",
+      "Don't Kennzahlen, Kundenstimmen oder Teamfotos erfinden, die nicht bestaetigt sind.",
+      "Don't annehmen, das Logo brauche einen hellen Hintergrund. Es hat einen echten transparenten Hintergrund."
+    ]
+  }
+}

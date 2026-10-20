@@ -1,0 +1,25 @@
+# Netlify erkennt Next.js automatisch und installiert den OpenNext Adapter.
+# Den Adapter NICHT als Plugin fixieren, Netlify hält ihn aktuell.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Sicherheits-Header zusätzlich hier, damit sie auch für Dateien aus public/ gelten,
+# die Netlify direkt ausliefert (Bilder, __forms.html). Seiten erhalten sie aus next.config.ts.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/__forms.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"

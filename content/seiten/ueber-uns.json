@@ -1,0 +1,68 @@
+{
+  "titel": "Über uns",
+  "inSitemap": true,
+  "seo": {
+    "titel": "Über uns",
+    "beschreibung": "Die Apple Property Group AG in Tägerwilen begleitet Immobilien von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung."
+  },
+  "bloecke": [
+    {
+      "discriminant": "hero",
+      "value": {
+        "ueberzeile": "Über uns",
+        "titel": "Träume verwirklichen durch Transparenz, Innovation und Vertrauen.",
+        "text": "Die Apple Property Group AG steht für ganzheitliche Immobilienkompetenz.",
+        "bild": "/bilder/seiten/ueber-uns/bloecke/0/value/bild.jpg",
+        "bildAlt": "Luftaufnahme dreier neu gebauter Einfamilienhäuser in einer Wohnüberbauung, ein Projekt der Apple Property Group AG",
+        "knopfPrimaer": {},
+        "knopfSekundaer": {},
+        "variante": "geteilt",
+        "hoehe": "kompakt"
+      }
+    },
+    {
+      "discriminant": "textMitBild",
+      "value": {
+        "titel": "Von der Entwicklung bis zur Bewirtschaftung",
+        "text": "Von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung begleiten wir ausgewählte Immobilienprojekte entlang der gesamten Wertschöpfungskette.\n\nDabei verbinden wir Immobilien-, Finanz- und Rechtsexpertise, um für unsere Kunden nachhaltige Werte und individuelle Lösungen zu schaffen. Die Apple Property Group AG wird inhaberbezogen geführt und begleitet Immobilien von der ersten Idee über die Entwicklung und Planung bis zur Realisierung und weiteren Betreuung.",
+        "bild": "/bilder/seiten/ueber-uns/bloecke/1/value/bild.jpg",
+        "bildAlt": "Architekturvisualisierung mehrerer Wohnhäuser mit begrüntem Innenhof, ein Immobilienprojekt der Apple Property Group AG",
+        "bildPosition": "links",
+        "knopf": {}
+      }
+    },
+    {
+      "discriminant": "team",
+      "value": {
+        "ueberzeile": "Team",
+        "titel": "Unser Team",
+        "personen": [
+          {
+            "name": "Natalie Piller, lic. iur.",
+            "funktion": "Geschäftsinhaberin und Geschäftsführerin"
+          },
+          {
+            "name": "Gianluigi Conoci",
+            "funktion": "Projektbetreuung und Immobilien"
+          },
+          {
+            "name": "Paul Künzig",
+            "funktion": "Administration"
+          }
+        ]
+      }
+    },
+    {
+      "discriminant": "kontaktaufruf",
+      "value": {
+        "titel": "Gefällt Ihnen, was wir machen?",
+        "text": "Lassen Sie es uns wissen. Gerne vereinbaren wir einen Termin.",
+        "knopf": {
+          "text": "Anfrage senden",
+          "link": "mailto:info@apple-group.ch"
+        },
+        "telefonZeigen": true
+      }
+    }
+  ]
+}

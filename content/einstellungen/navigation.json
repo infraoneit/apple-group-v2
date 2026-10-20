@@ -1,0 +1,48 @@
+{
+  "hauptmenue": [
+    {
+      "text": "Projekte",
+      "link": "/referenzen",
+      "unterpunkte": []
+    },
+    {
+      "text": "Über uns",
+      "link": "/ueber-uns",
+      "unterpunkte": []
+    },
+    {
+      "text": "Kontakt",
+      "link": "/kontakt",
+      "unterpunkte": []
+    }
+  ],
+  "knopf": {},
+  "fusszeile": [
+    {
+      "text": "Projekte",
+      "link": "/referenzen"
+    },
+    {
+      "text": "Über uns",
+      "link": "/ueber-uns"
+    },
+    {
+      "text": "Kontakt",
+      "link": "/kontakt"
+    }
+  ],
+  "rechtliches": [
+    {
+      "text": "Impressum",
+      "link": "/impressum"
+    },
+    {
+      "text": "Datenschutz",
+      "link": "/datenschutz"
+    },
+    {
+      "text": "AGB",
+      "link": "/agb"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "leistungen": {
+    "titel": "Leistungen",
+    "seo": {}
+  },
+  "referenzen": {
+    "ueberzeile": "Projekte",
+    "titel": "Unsere Projekte",
+    "einleitung": "Aktuelle Immobilienangebote finden Sie auf den gängigen Immobilienplattformen wie ImmoScout24 und Homegate.",
+    "seo": {
+      "titel": "Projekte",
+      "beschreibung": "Immobilienprojekte der Apple Property Group AG in Kreuzlingen, Ermatingen, Kradolf-Schönenberg und Güttingen."
+    }
+  },
+  "jobs": {
+    "titel": "Offene Stellen",
+    "seo": {}
+  }
+}
