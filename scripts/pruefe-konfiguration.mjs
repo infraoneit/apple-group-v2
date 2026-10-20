@@ -107,7 +107,11 @@ if (site) {
 const KEYSTATIC_VARIABLEN = ['KEYSTATIC_GITHUB_CLIENT_ID', 'KEYSTATIC_GITHUB_CLIENT_SECRET', 'KEYSTATIC_SECRET', 'NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG'];
 if (aufNetlify) {
   const fehlend = KEYSTATIC_VARIABLEN.filter((v) => !process.env[v]);
-  if (fehlend.length > 0) {
+  if (fehlend.length === KEYSTATIC_VARIABLEN.length) {
+    // Keystatic ist online noch nicht angebunden: die Website wird trotzdem gebaut,
+    // /keystatic und /api/keystatic liefern bis zur Einrichtung einen Hinweis (docs/03-github-verbinden.md).
+    warnungen.push('Keystatic ist online noch nicht eingerichtet, keine Umgebungsvariablen gesetzt. Die Website wird ohne Inhaltsverwaltung gebaut (docs/04-netlify.md).');
+  } else if (fehlend.length > 0) {
     const text = `Auf Netlify fehlen Umgebungsvariablen: ${fehlend.join(', ')}. Ohne sie funktioniert /keystatic online nicht (docs/04-netlify.md).`;
     if (produktiv) fehler.push(text);
     else warnungen.push(text);

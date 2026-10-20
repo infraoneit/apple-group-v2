@@ -35,7 +35,7 @@ Später änderbar unter **Project configuration, Environment variables**.
 
 Die Konfigurationsprüfung (`prebuild`) bricht den produktiven Build ab, wenn:
 
-- eine Variable fehlt, `KEYSTATIC_SECRET` kürzer als 32 Zeichen ist oder ein Wert `#` oder Leerzeichen enthält
+- eine Variable fehlt, `KEYSTATIC_SECRET` kürzer als 32 Zeichen ist oder ein Wert `#` oder Leerzeichen enthält. Ausnahme: Sind noch gar keine Keystatic-Variablen gesetzt, läuft der Build mit einer Warnung durch, damit die Website schon vor der Anbindung von Keystatic online gehen kann. `/keystatic` zeigt bis dahin einen Hinweis.
 - in `src/site.config.ts` noch Platzhalter stehen oder der Keystatic-Modus `lokal` ist
 - Inhalte noch Platzhalter der Vorlage enthalten (Muster AG, example.ch, Beispielname)
 
