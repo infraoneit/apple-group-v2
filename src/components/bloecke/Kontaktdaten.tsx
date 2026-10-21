@@ -26,6 +26,12 @@ export function Kontaktdaten({ einstellungen: e }: { einstellungen: Einstellunge
             {e.email}
           </a>
         </li>
+        {e.terminhinweis ? (
+          <li className="flex gap-4">
+            <Clock className="mt-1 size-5 shrink-0 text-akzent" aria-hidden />
+            <span>{e.terminhinweis}</span>
+          </li>
+        ) : null}
         {e.oeffnungszeiten.length > 0 ? (
           <li className="flex gap-4">
             <Clock className="mt-1 size-5 shrink-0 text-akzent" aria-hidden />

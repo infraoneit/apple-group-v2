@@ -28,7 +28,7 @@ Next.js-Website mit Keystatic-Sammlungen für Projekte (`Referenzen`), freie Sei
 
 ## Brand Commitments
 
-Name: Apple Property Group AG. Bestehendes Signet (Apfel-Monogramm "APG" in Rose Gold) ist die reale, unveränderliche Grafik der Firma. Die Datei hat tatsächlich einen transparenten Hintergrund (geprüft) und funktioniert deshalb sowohl auf hellem als auch auf dunklem Grund, `logo` und `logohell` in Keystatic zeigen bewusst auf dieselbe Datei.
+Name: Apple Property Group AG. Bestehendes Signet (Apfel-Monogramm "APG" in Rose Gold) ist die reale, unveränderliche Grafik der Firma. Seit dem 21. Oktober 2026 wird es auf Wunsch der Kundschaft matt dargestellt (Fläche #CA8F7C, Kontur #B57059, kein Metallic-Verlauf), das Original liegt als logo-metallic-original.png daneben. Die Datei hat tatsächlich einen transparenten Hintergrund (geprüft) und funktioniert deshalb sowohl auf hellem als auch auf dunklem Grund, `logo` und `logohell` in Keystatic zeigen bewusst auf dieselbe Datei.
 
 Seit der Neugestaltung "Die Vitrine" (September 2026, inspiriert von Cartier, Tiffany, Rolex u. a.) gilt: Rose Gold bleibt die reale Signetfarbe (`--color-marke: #9a5c4a`) auf hellen Flächen, ein helleres Blattgold (`--color-gold: #cda27a`) trägt dieselbe Familie auf dunklen "Vitrinen"-Flächen weiter. Überschriften in Cormorant (vorher Titillium Web), Fliesstext weiterhin in Inter.
 

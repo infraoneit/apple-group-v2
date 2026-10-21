@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import type { Einstellungen } from '@/lib/cms';
+import { cn } from '@/lib/cn';
 import { sauberText } from '@/lib/text';
 import type { BlockDaten } from './BlockRenderer';
 
@@ -9,7 +10,7 @@ export function Kontaktaufruf({ daten: d, einstellungen: e }: { daten: BlockDate
     <section className="bg-flaeche">
       <div className="container-seite abschnitt flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-4xl">
-          <h2 className="titel-2">{sauberText(d.titel)}</h2>
+          <h2 className={cn('titel-2', d.hervorheben && 'text-akzent')}>{sauberText(d.titel)}</h2>
           {d.text ? <p className="mt-5 max-w-3xl text-lg text-text-leise lg:text-xl">{sauberText(d.text)}</p> : null}
         </div>
         <div className="flex flex-wrap gap-4">

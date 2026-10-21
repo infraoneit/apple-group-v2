@@ -12,7 +12,8 @@ const SOCIAL_NAMEN: Record<string, string> = {
 };
 
 export function Fusszeile({ einstellungen: e, navigation: n }: { einstellungen: Einstellungen; navigation: Navigation }) {
-  const jahr = new Date().getFullYear();
+  // Auf Wunsch der Kundschaft mindestens 2027, danach das laufende Jahr
+  const jahr = Math.max(2027, new Date().getFullYear());
 
   return (
     <footer className="border-t border-gold/20 bg-flaeche-dunkel text-text-hell">
@@ -37,7 +38,7 @@ export function Fusszeile({ einstellungen: e, navigation: n }: { einstellungen: 
           <div>
             <h2 className="text-sm font-semibold tracking-[0.14em] text-text-hell-leise uppercase">Kontakt</h2>
             <address className="mt-5 space-y-1 not-italic">
-              <p>{e.firmenname}</p>
+              <p className="font-semibold text-rosegold">{e.firmenname}</p>
               <p>{e.strasse}</p>
               <p>
                 {e.plz} {e.ort}
@@ -87,7 +88,7 @@ export function Fusszeile({ einstellungen: e, navigation: n }: { einstellungen: 
 
         <div className="mt-16 flex flex-col gap-6 border-t border-linie-dunkel pt-8 text-sm text-text-hell-leise md:flex-row md:items-center md:justify-between">
           <p>
-            © {jahr} {e.firmenname}
+            © {jahr} {e.firmenname}. Alle Rechte vorbehalten.
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {n.rechtliches.map((l) => (

@@ -3,6 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { DOMAIN } from '@/site.config';
 import { absaetze, sauberText } from '@/lib/text';
+import { mitVerweisen } from '@/lib/verweise';
 
 type Pfadpunkt = { text: string; href: string };
 
@@ -46,7 +47,7 @@ export function Seitenkopf({
           <h1 className="titel-1">{sauberText(titel)}</h1>
           {absaetze(einleitung).map((a, i) => (
             <p key={i} className="einleitung lesebreite mt-6">
-              {a}
+              {mitVerweisen(a)}
             </p>
           ))}
           {children}

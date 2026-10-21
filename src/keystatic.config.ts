@@ -72,6 +72,7 @@ export default config({
           ],
           defaultValue: 'CH',
         }),
+        terminhinweis: text('Hinweis zu Terminen', { max: 80, beschreibung: 'Erscheint bei den Kontaktangaben, z. B. "Termine nach Vereinbarung". Kann leer bleiben.' }),
         oeffnungszeiten: fields.array(
           fields.object({
             tage: text('Tage', { pflicht: true, max: 40, beschreibung: 'z. B. "Montag bis Donnerstag"' }),

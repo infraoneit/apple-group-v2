@@ -26,6 +26,8 @@
   --color-marke-hell: #f3e5de;
   --color-gold: #cda27a;
   --color-gold-dunkel: #a97f56;
+  /* Rosegold des Schriftzugs im Logo (fest, beide Modi): Firmenname in der Fusszeile */
+  --color-rosegold: #c6856f;
   --color-akzent: #cda27a;
   --color-akzent-dunkel: #a97f56;
 

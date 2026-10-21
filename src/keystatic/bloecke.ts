@@ -291,6 +291,7 @@ export function seitenBloecke(bildOrdner: string) {
           text: langtext('Text', { max: 280 }),
           knopf: knopf('Knopf'),
           telefonZeigen: fields.checkbox({ label: 'Telefonnummer aus den Einstellungen zeigen', defaultValue: true }),
+          hervorheben: fields.checkbox({ label: 'Hervorheben (Titel in der Akzentfarbe)', defaultValue: false }),
         }),
       },
 

@@ -10,7 +10,7 @@
       "discriminant": "hero",
       "value": {
         "ueberzeile": "Über uns",
-        "titel": "Träume verwirklichen durch Transparenz, Innovation und Vertrauen.",
+        "titel": "«Träume verwirklichen durch Transparenz, Innovation und Vertrauen.»",
         "text": "Die Apple Property Group AG steht für ganzheitliche Immobilienkompetenz.",
         "bild": "/bilder/seiten/ueber-uns/bloecke/0/value/bild.jpg",
         "bildAlt": "Luftaufnahme dreier neu gebauter Einfamilienhäuser in einer Wohnüberbauung, ein Projekt der Apple Property Group AG",
@@ -42,12 +42,12 @@
             "funktion": "Geschäftsinhaberin und Geschäftsführerin"
           },
           {
-            "name": "Gianluigi Conoci",
-            "funktion": "Projektbetreuung und Immobilien"
+            "name": "Paul Künzig",
+            "funktion": "Verwaltung und Administration"
           },
           {
-            "name": "Paul Künzig",
-            "funktion": "Administration"
+            "name": "Jacqueline Unger",
+            "funktion": "Bauzeichnerin und Office Managerin Immobilien"
           }
         ]
       }
