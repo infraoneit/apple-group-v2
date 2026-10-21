@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import { Seitenkopf } from '@/components/ui/Seitenkopf';
 import { Galerie } from '@/components/ui/Galerie';
 import { ReferenzKarte } from '@/components/karten/Karten';
-import { holeReferenz, holeReferenzen, holeUebersichten } from '@/lib/cms';
+import { Kontaktaufruf } from '@/components/bloecke/Kontaktaufruf';
+import { holeEinstellungen, holeReferenz, holeReferenzen, holeUebersichten } from '@/lib/cms';
 import { renderMarkdoc } from '@/lib/markdoc';
 import { metadaten } from '@/lib/seo';
 
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ReferenzSeite({ params }: Props) {
   const { slug } = await params;
-  const [r, alle, { referenzen: u }] = await Promise.all([holeReferenz(slug), holeReferenzen(), holeUebersichten()]);
+  const [r, alle, { referenzen: u, referenzenKontaktaufruf: aufruf }, e] = await Promise.all([holeReferenz(slug), holeReferenzen(), holeUebersichten(), holeEinstellungen()]);
   if (!r) notFound();
   const inhalt = await renderMarkdoc(r.inhalt);
   const weitere = alle.filter((x) => x.slug !== slug).slice(0, 3);
@@ -70,6 +71,19 @@ export default async function ReferenzSeite({ params }: Props) {
             </div>
           </div>
         </section>
+      ) : null}
+
+      {aufruf.titel ? (
+        <Kontaktaufruf
+          daten={{
+            titel: aufruf.titel,
+            text: aufruf.text,
+            knopf: { text: aufruf.knopfText, link: aufruf.knopfLink },
+            telefonZeigen: aufruf.telefonZeigen,
+            hervorheben: false,
+          }}
+          einstellungen={e}
+        />
       ) : null}
     </>
   );

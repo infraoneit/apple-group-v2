@@ -15,5 +15,12 @@
   "jobs": {
     "titel": "Offene Stellen",
     "seo": {}
+  },
+  "referenzenKontaktaufruf": {
+    "titel": "Interesse an diesem Projekt?",
+    "text": "Wir beantworten Ihre Fragen zu Kauf, Miete oder einem eigenen Vorhaben.",
+    "knopfText": "Anfrage senden",
+    "knopfLink": "mailto:info@apple-group.ch",
+    "telefonZeigen": true
   }
 }

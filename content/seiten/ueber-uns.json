@@ -55,7 +55,7 @@
     {
       "discriminant": "kontaktaufruf",
       "value": {
-        "titel": "Gefällt Ihnen, was wir machen?",
+        "titel": "Haben Sie ein Projekt?",
         "text": "Lassen Sie es uns wissen. Gerne vereinbaren wir einen Termin.",
         "knopf": {
           "text": "Anfrage senden",

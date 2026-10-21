@@ -157,6 +157,16 @@ export default config({
       schema: {
         leistungen: uebersicht('Seite /leistungen', 'Unsere Leistungen'),
         referenzen: uebersicht('Seite /referenzen', 'Referenzen'),
+        referenzenKontaktaufruf: fields.object(
+          {
+            titel: text('Titel', { max: 90, beschreibung: 'Leer lassen, um den Abschnitt auf den Projektseiten auszublenden.' }),
+            text: langtext('Text', { max: 280 }),
+            knopfText: text('Knopf, Beschriftung', { max: 40 }),
+            knopfLink: link('Knopf, Ziel'),
+            telefonZeigen: fields.checkbox({ label: 'Telefonnummer aus den Einstellungen zeigen', defaultValue: true }),
+          },
+          { label: 'Kontaktaufruf auf jeder Projektseite', description: 'Erscheint am Ende jeder Projektseite, unter "Weitere Projekte".' }
+        ),
         jobs: uebersicht('Seite /jobs', 'Offene Stellen'),
       },
     }),
