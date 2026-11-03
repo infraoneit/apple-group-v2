@@ -1,0 +1,52 @@
+# Optimiert Bilder, die über Keystatic (oder von Hand) ins Repository kommen:
+# JPG und PNG werden zu WebP, zu grosse Dateien verkleinert, Vorschaubilder erzeugt.
+# Die Verweise in den Inhalten werden mit angepasst und das Ergebnis zurück auf main committet.
+# Netlify baut danach automatisch neu. Derselbe Schritt läuft zusätzlich vor jedem Build,
+# die Website ist also auch dann optimiert, wenn diese Action noch nicht durch ist.
+name: Bilder optimieren
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/bilder/**'
+      - 'content/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bilder-optimieren
+  cancel-in-progress: false
+
+jobs:
+  optimieren:
+    # Eigene Commits dieser Action lösen keinen weiteren Lauf aus
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - run: node scripts/optimiere-bilder.mjs
+
+      - name: Optimierte Bilder committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A public/bilder content
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen."
+            exit 0
+          fi
+          git commit -m "Bilder automatisch optimiert (WebP, Grösse, Vorschaubilder)"
+          git pull --rebase origin main
+          git push origin HEAD:main

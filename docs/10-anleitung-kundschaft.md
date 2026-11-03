@@ -48,12 +48,8 @@ Die Startseite zeigt automatisch die **neusten** Referenzen und offenen Stellen.
 ## Bilder hochladen
 
 - Beim Bildfeld **Choose file** klicken und die Datei wählen. Mit **Remove** wird ein Bild wieder entfernt
-- **Format:** JPG oder WebP. Keine HEIC-Dateien (Standardformat vom iPhone)
-- **Grösse:** Handyfotos vorher verkleinern, z. B. kostenlos auf https://squoosh.app
-  1. Foto hineinziehen
-  2. rechts **WebP** wählen, Qualität 75
-  3. **Resize** auf Breite 2400 (bei Porträts 800)
-  4. herunterladen und im CMS hochladen
+- **Format:** JPG, PNG oder WebP. Keine HEIC-Dateien (Standardformat vom iPhone: in den iPhone-Einstellungen unter Kamera, Formate, "Maximale Kompatibilität" wählen, dann speichert das iPhone JPG)
+- **Grösse:** Sie müssen nichts verkleinern. Nach dem Speichern wird jedes Bild automatisch auf Webgrösse gebracht und ins schnelle WebP-Format umgewandelt. Das Original bleibt bei Ihnen
 - **Bildbeschreibung (Alt-Text):** kurz und sachlich beschreiben, was zu sehen ist. Das hilft sehbehinderten Menschen und Google
 
 ## Texte schreiben

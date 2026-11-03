@@ -217,7 +217,7 @@ export function seitenBloecke(bildOrdner: string) {
               name: text('Vorname und Name', { pflicht: true, max: 60 }),
               funktion: text('Funktion', { pflicht: true, max: 80 }),
               foto: bild('Foto', bildOrdner, {
-                hinweis: 'Hochformat 800 x 1000 px (4:5), JPG oder WebP, unter 120 KB. Gesicht im oberen Drittel, gleicher Hintergrund für alle.',
+                hinweis: 'Hochformat (4:5), Gesicht im oberen Drittel, gleicher Hintergrund für alle. Grösse wird automatisch angepasst.',
               }),
               email: fields.text({
                 label: 'E-Mail (optional)',
@@ -227,7 +227,7 @@ export function seitenBloecke(bildOrdner: string) {
             }),
             { label: 'Personen', itemLabel: (p) => p.fields.name.value || 'Person' }
           ),
-          gruppenbild: bild('Gruppenbild', bildOrdner, { hinweis: 'Querformat, mindestens 1600 px breit, JPG, unter 300 KB. Erscheint unter den Personen. Kann leer bleiben.' }),
+          gruppenbild: bild('Gruppenbild', bildOrdner, { hinweis: 'Querformat. Erscheint unter den Personen. Kann leer bleiben.' }),
           gruppenbildAlt: alttext(),
         }),
       },
@@ -324,7 +324,7 @@ export function seitenBloecke(bildOrdner: string) {
           titel: text('Titel', { pflicht: true, max: 90 }),
           text: langtext('Text', { max: 400 }),
           kontaktdatenZeigen: fields.checkbox({ label: 'Adresse, Telefon und Öffnungszeiten daneben zeigen', defaultValue: true }),
-          bild: bild('Foto des Standorts', bildOrdner, { hinweis: 'Erscheint unten im Kasten mit den Kontaktangaben, Querformat 1600 x 1000 px, unter 300 KB. Kann leer bleiben.' }),
+          bild: bild('Foto des Standorts', bildOrdner, { hinweis: 'Erscheint unten im Kasten mit den Kontaktangaben, Querformat. Kann leer bleiben.' }),
           bildAlt: alttext(),
           hinweis: text('Hinweis', { max: 160, beschreibung: 'Kleine Zeile unter der Karte, z. B. zu Besucherparkplätzen. Kann leer bleiben.' }),
         }),

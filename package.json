@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev -p 3000",
-    "prebuild": "node scripts/erzeuge-formulare.mjs && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/pruefe-konfiguration.mjs --build && node scripts/pruefe-texte.mjs --build",
+    "prebuild": "node scripts/erzeuge-formulare.mjs && node scripts/optimiere-bilder.mjs && node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/pruefe-konfiguration.mjs --build && node scripts/pruefe-texte.mjs --build",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

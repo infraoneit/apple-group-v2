@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { notFound } from 'next/navigation';
 import { Seitenkopf } from '@/components/ui/Seitenkopf';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -21,8 +23,11 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const r = await holeReferenz(slug);
   if (!r) return {};
-  // Vorschaubild als JPG (1200 x 630), weil nicht alle sozialen Netzwerke WebP anzeigen
-  return metadaten({ pfad: `/referenzen/${slug}`, seitentitel: r.titel, seo: r.seo, beschreibungFallback: r.kurzbeschreibung, bild: `/bilder/referenzen/${slug}/vorschau.jpg`, bildAlt: r.titelbildAlt });
+  // Vorschaubild als JPG (1200 x 630), weil nicht alle sozialen Netzwerke WebP anzeigen.
+  // scripts/optimiere-bilder.mjs erzeugt es vor jedem Build, zur Sicherheit sonst das Titelbild.
+  const vorschau = `/bilder/referenzen/${slug}/vorschau.jpg`;
+  const bild = existsSync(path.join(process.cwd(), 'public', vorschau)) ? vorschau : r.titelbild;
+  return metadaten({ pfad: `/referenzen/${slug}`, seitentitel: r.titel, seo: r.seo, beschreibungFallback: r.kurzbeschreibung, bild, bildAlt: r.titelbildAlt });
 }
 
 export default async function ReferenzSeite({ params }: Props) {

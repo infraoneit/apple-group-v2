@@ -80,8 +80,7 @@ export function link(label: string, o: { pflicht?: boolean; beschreibung?: strin
  * Bildfeld. Keystatic legt die Datei unter public/bilder/<ordner>/<eintrag>/<feldname>.<endung> ab.
  * Der Dateiname entsteht automatisch aus dem Feldnamen, deshalb Feldnamen sprechend wählen.
  */
-const BILD_HINWEIS =
-  'JPG oder WebP, idealerweise 2400 px breit und unter 500 KB. Keine Handyfotos in Originalgrösse und kein HEIC (iPhone-Format) hochladen.';
+const BILD_HINWEIS = 'JPG, PNG oder WebP, kein HEIC. Die Grösse wird nach dem Speichern automatisch angepasst.';
 
 type BildOptionen = { beschreibung?: string; /** ersetzt den Standardhinweis zu Format und Grösse */ hinweis?: string };
 

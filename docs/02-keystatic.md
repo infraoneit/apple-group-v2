@@ -123,6 +123,8 @@ Keystatic benennt hochgeladene Bilder **selbst** nach dem Feldnamen und legt sie
 | Block auf Startseite | `public/bilder/startseite/bloecke/0/value/bild.webp` |
 | Einzelseite | `public/bilder/firma/logo.svg` |
 
+**Automatische Optimierung:** `scripts/optimiere-bilder.mjs` läuft vor jedem Build und als GitHub Action nach jedem Push. JPG und PNG werden zu WebP, zu grosse Bilder verkleinert, und Bilder mit Standardnamen (`bild.webp`, `titelbild.webp`, `foto.webp`) bekommen einen sprechenden Namen aus ihrem Alt-Text, z. B. `garten-mit-feuerstelle-am-abend-einfamilienhaus-winterthur.webp`. Die Verweise in `content/` werden mitgeführt. Speichert die Kundschaft den Eintrag erneut, vergibt Keystatic wieder den Standardnamen, und der nächste Lauf benennt wieder um. Das ist gewollt und harmlos. Details in [06-bilder.md](06-bilder.md).
+
 **Bilder im Fliesstext** werden beim Hochladen umbenannt, z. B. `IMG_1234.JPG` zu `text-img-1234-m3k9x2.jpg`. So bleiben Namen sauber und nichts wird überschrieben. Der Alt-Text ist dort ebenfalls Pflicht.
 
 Folgen daraus:

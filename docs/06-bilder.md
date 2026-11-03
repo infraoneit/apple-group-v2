@@ -24,15 +24,17 @@ Grenzen der automatischen Prüfung (`npm run pruefen:bilder`):
 | Name | Grossbuchstaben | Leerzeichen, Umlaute, Sonderzeichen |
 | Format | GIF | HEIC, TIFF, BMP, PSD |
 
-Zu grosse Bilder verkleinern:
+## Automatische Optimierung
 
-```bash
-git add -A
-git commit -m "vor Bildoptimierung"
-npm run bilder:optimieren
-```
+`scripts/optimiere-bilder.mjs` bringt alle Bilder unter `public/bilder` in das Format der Website: JPG und PNG werden zu WebP (höchstens 1920 px, unter 300 KB), die Verweise in `content/` werden angepasst, zu grosse WebP neu komprimiert und für jedes Projekt ein `vorschau.jpg` (1200 x 630) für soziale Netzwerke erzeugt. Ausgenommen sind `public/bilder/firma`, SVG und `vorschau.jpg`.
 
-Das Skript verkleinert auf 2560 px, komprimiert neu und behält Dateiname und Endung, damit alle Verweise gültig bleiben.
+Das Skript läuft an drei Stellen:
+
+1. **Vor jedem Build** (`prebuild`, also auch auf Netlify). Die Website wird immer mit optimierten Bildern gebaut, egal was die Kundschaft über Keystatic hochlädt.
+2. **Als GitHub Action** (`.github/workflows/bilder-optimieren.yml`) nach jedem Push, der Bilder oder Inhalte ändert. Die optimierten Dateien werden auf `main` zurückgeschrieben, das Repository bleibt klein. Netlify baut danach nochmals.
+3. **Von Hand** mit `npm run bilder:optimieren`.
+
+Die Kundschaft muss Bilder deshalb nicht mehr selbst verkleinern. Einzige Grenze: HEIC kann nicht umgewandelt werden, die Konfigurationsprüfung bricht den Build dann mit einer klaren Meldung ab.
 
 ## Dateinamen
 
@@ -67,4 +69,4 @@ Bilder, die **im CMS hochgeladen** werden, benennt Keystatic selbst (siehe [02-k
 
 ## Fotos von der Kundschaft
 
-Fotos kommen oft direkt vom Handy (4 bis 12 MB, teils HEIC). Vor dem Hochladen im CMS verkleinern, z. B. mit https://squoosh.app (WebP, Qualität 75 bis 80, Breite 2400 px). Der Hinweis steht auch im CMS beim Bildfeld und in [10-anleitung-kundschaft.md](10-anleitung-kundschaft.md).
+Fotos kommen oft direkt vom Handy (4 bis 12 MB, teils HEIC). JPG und PNG werden automatisch umgewandelt (siehe oben), HEIC nicht. Der Hinweis zu HEIC steht auch in [10-anleitung-kundschaft.md](10-anleitung-kundschaft.md).
