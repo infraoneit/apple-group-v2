@@ -38,18 +38,14 @@
         "titel": "Unser Team",
         "personen": [
           {
-            "name": "Natalie Piller, lic. iur.",
-            "funktion": "Geschäftsinhaberin und Geschäftsführerin"
-          },
-          {
-            "name": "Paul Künzig",
-            "funktion": "Verwaltung und Administration"
-          },
-          {
-            "name": "Jacqueline Unger",
-            "funktion": "Bauzeichnerin und Office Managerin Immobilien"
+            "name": "Natalie C. S. Piller, lic. iur. Uni Zürich",
+            "funktion": "Geschäftsinhaberin und Geschäftsführerin",
+            "foto": "/bilder/seiten/ueber-uns/bloecke/2/value/personen/0/foto.jpg"
           }
-        ]
+        ],
+        "text": "Hinter jedem erfolgreichen Immobilienprojekt steht ein starkes Team. Wir verbinden Fachkompetenz mit Engagement und einem hohen Anspruch an die Qualität.",
+        "gruppenbild": "/bilder/seiten/ueber-uns/bloecke/2/value/gruppenbild.jpg",
+        "gruppenbildAlt": "Das Team der Apple Property Group AG bei der gemeinsamen Planung im Büro"
       }
     },
     {

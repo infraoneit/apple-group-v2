@@ -21,10 +21,10 @@
       "discriminant": "textMitBild",
       "value": {
         "ueberzeile": "Über unser Unternehmen",
-        "titel": "Ganzheitliche Immobilienkompetenz",
-        "text": "Die Apple Property Group AG steht für ganzheitliche Immobilienkompetenz. Von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung begleiten wir ausgewählte Immobilienprojekte entlang der gesamten Wertschöpfungskette.\n\nDabei verbinden wir Immobilien-, Finanz- und Rechtsexpertise, um für unsere Kunden nachhaltige Werte und individuelle Lösungen zu schaffen. Die Apple Property Group AG wird inhaberbezogen geführt und begleitet Immobilien von der ersten Idee über die Entwicklung und Planung bis zur Realisierung und weiteren Betreuung.",
+        "titel": "Ihr Partner für Immobilien.",
+        "text": "Wir entwickeln, realisieren und vermarkten Immobilien. Von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung begleiten wir ausgewählte Immobilienprojekte entlang der gesamten Wertschöpfungskette.\n\nAls persönlich geführtes Unternehmen stehen wir für kurze Entscheidungswege, individuelle Lösungen und nachhaltige Werte.",
         "bild": "/bilder/startseite/bloecke/1/value/bild.jpg",
-        "bildAlt": "Luftaufnahme einer neuen Wohnüberbauung mit Grünflächen, ein Immobilienprojekt der Apple Property Group AG",
+        "bildAlt": "Terrasse mit Blick auf den Bodensee in der Quartierentwicklung Güttingen, ein Projekt der Apple Property Group AG",
         "bildPosition": "rechts",
         "knopf": {
           "text": "Mehr über uns",
@@ -37,15 +37,15 @@
       "value": {
         "ueberzeile": "Projekte",
         "titel": "Ausgewählte Projekte",
-        "anzahl": "4",
-        "linkText": "Alle Projekte"
+        "anzahl": "6",
+        "linkText": "Unsere Referenzprojekte"
       }
     },
     {
       "discriminant": "kontaktaufruf",
       "value": {
-        "titel": "Wir suchen laufend Bauland.",
-        "text": "Und zahlen Bestpreise. Kontaktieren Sie uns.",
+        "titel": "Sie besitzen ein Grundstück mit Potenzial?",
+        "text": "Wir suchen attraktives Bauland für neue Immobilienprojekte und freuen uns auf den persönlichen Austausch mit Ihnen. Diskret, unkompliziert und mit einem klaren Blick für Werte.",
         "knopf": {
           "text": "Anfrage senden",
           "link": "mailto:info@apple-group.ch"

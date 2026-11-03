@@ -11,7 +11,10 @@
       "value": {
         "titel": "So finden Sie uns",
         "text": "Gerne beraten wir Sie persönlich. Kontaktieren Sie uns für einen Beratungstermin.",
-        "kontaktdatenZeigen": true
+        "kontaktdatenZeigen": true,
+        "bild": "/bilder/seiten/kontakt/bloecke/0/value/bild.jpg",
+        "bildAlt": "Eingang zum Büro der Apple Property Group AG an der Hauptstrasse 40a in Tägerwilen",
+        "hinweis": "Besucherparkplätze befinden sich direkt neben der Tiefgarageneinfahrt."
       }
     }
   ]

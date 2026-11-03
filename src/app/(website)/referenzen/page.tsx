@@ -24,8 +24,8 @@ export default async function ReferenzenSeite() {
           <p className="container-seite einleitung text-text-hell-leise">Die Referenzen werden zurzeit zusammengestellt.</p>
         ) : null}
         <div className={`container-seite ${rasterFuerKacheln(referenzen.length)} gap-y-14`}>
-          {referenzen.map((r) => (
-            <ReferenzKarte key={r.slug} referenz={r} titelEbene="h2" />
+          {referenzen.map((r, i) => (
+            <ReferenzKarte key={r.slug} referenz={r} titelEbene="h2" sofort={i < 3} />
           ))}
         </div>
       </section>

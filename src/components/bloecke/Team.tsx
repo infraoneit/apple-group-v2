@@ -53,6 +53,14 @@ export function Team({ daten: d }: { daten: BlockDaten<'team'> }) {
             </li>
           ))}
         </ul>
+        {d.gruppenbild ? (
+          <div className="relative mt-16 aspect-[16/9] lg:mt-20 lg:aspect-[21/9]" data-einblenden>
+            <div className="vitrine-licht" />
+            <div className="vitrine-rahmen h-full">
+              <Image src={d.gruppenbild} alt={d.gruppenbildAlt} fill sizes="(min-width: 2400px) 2304px, 100vw" className="object-cover" />
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );

@@ -25,10 +25,13 @@ export function ReferenzKarte({
   titelEbene = 'h3',
   sizes = KARTEN_SIZES,
   ortZeigen = true,
+  sofort = false,
 }: {
   referenz: Referenz;
   titelEbene?: Ebene;
   sizes?: string;
+  /** Bild sofort laden statt erst beim Scrollen (für die ersten Karten im sichtbaren Bereich) */
+  sofort?: boolean;
   /** Ort neben der Kategorie zeigen. Projektdaten wie das Datum werden auf Wunsch der Kundschaft nirgends gezeigt. */
   ortZeigen?: boolean;
 }) {
@@ -38,7 +41,14 @@ export function ReferenzKarte({
       <div className="relative aspect-[4/3]">
         <div className="vitrine-licht opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
         <div className="vitrine-rahmen h-full">
-          <Image src={r.titelbild} alt={r.titelbildAlt} fill sizes={sizes} className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+          <Image
+            src={r.titelbild}
+            alt={r.titelbildAlt}
+            fill
+            sizes={sizes}
+            loading={sofort ? 'eager' : 'lazy'}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          />
         </div>
       </div>
       <div className="mt-5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1 text-sm text-text-hell-leise">

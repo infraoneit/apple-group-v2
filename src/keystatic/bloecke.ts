@@ -227,6 +227,8 @@ export function seitenBloecke(bildOrdner: string) {
             }),
             { label: 'Personen', itemLabel: (p) => p.fields.name.value || 'Person' }
           ),
+          gruppenbild: bild('Gruppenbild', bildOrdner, { hinweis: 'Querformat, mindestens 1600 px breit, JPG, unter 300 KB. Erscheint unter den Personen. Kann leer bleiben.' }),
+          gruppenbildAlt: alttext(),
         }),
       },
 
@@ -322,6 +324,9 @@ export function seitenBloecke(bildOrdner: string) {
           titel: text('Titel', { pflicht: true, max: 90 }),
           text: langtext('Text', { max: 400 }),
           kontaktdatenZeigen: fields.checkbox({ label: 'Adresse, Telefon und Öffnungszeiten daneben zeigen', defaultValue: true }),
+          bild: bild('Foto des Standorts', bildOrdner, { hinweis: 'Erscheint neben der Karte, Querformat 1600 x 1000 px, JPG, unter 300 KB. Kann leer bleiben.' }),
+          bildAlt: alttext(),
+          hinweis: text('Hinweis', { max: 160, beschreibung: 'Kleine Zeile unter der Karte, z. B. zu Besucherparkplätzen. Kann leer bleiben.' }),
         }),
       },
     },
