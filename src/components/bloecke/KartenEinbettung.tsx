@@ -9,7 +9,7 @@ type Props = { adresse: string; titel: string };
  * wird keine Verbindung zu Google oder OpenStreetMap aufgebaut. Der Link darunter öffnet
  * den Standort in Google Maps, erst dann verlässt der Besuch die Website.
  */
-const KARTE = '/bilder/seiten/kontakt/karte-taegerwilen.jpg';
+const KARTE = '/bilder/seiten/kontakt/karte-apple-property-group-taegerwilen.webp';
 
 export function KartenEinbettung({ adresse, titel }: Props) {
   const anfrage = encodeURIComponent(adresse);

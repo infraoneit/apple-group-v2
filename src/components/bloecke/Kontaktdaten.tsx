@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import type { Einstellungen } from '@/lib/cms';
 
-export function Kontaktdaten({ einstellungen: e }: { einstellungen: Einstellungen }) {
+export function Kontaktdaten({ einstellungen: e, bild, bildAlt }: { einstellungen: Einstellungen; bild?: string | null; bildAlt?: string }) {
   return (
     <aside className="h-fit rounded-[var(--radius-karte)] bg-flaeche p-8 lg:sticky lg:top-36 lg:p-10">
       <h3 className="titel-3">{e.firmenname}</h3>
@@ -46,6 +47,11 @@ export function Kontaktdaten({ einstellungen: e }: { einstellungen: Einstellunge
           </li>
         ) : null}
       </ul>
+      {bild ? (
+        <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-karte)] border border-akzent/20">
+          <Image src={bild} alt={bildAlt ?? ''} fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" />
+        </div>
+      ) : null}
     </aside>
   );
 }

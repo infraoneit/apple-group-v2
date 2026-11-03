@@ -6,8 +6,8 @@
       "value": {
         "titel": "Immobilien, die Werte schaffen. Von der Vision bis zur Realisierung.",
         "text": "Ganzheitliche Lösungen rund um Immobilien, mit Erfahrung, Leidenschaft und einem Anspruch an höchste Qualität.",
-        "bild": "/bilder/startseite/bloecke/0/value/bild-nacht.jpg",
-        "bildAlt": "Architekturvisualisierung von drei Einfamilienhäusern in der Abenddämmerung, ein Neubauprojekt der Apple Property Group AG in Kreuzlingen",
+        "bild": "/bilder/startseite/bloecke/0/value/mehrfamilienhaeuser-ermatingen-sonnenuntergang.webp",
+        "bildAlt": "Zwei Mehrfamilienhäuser in Ermatingen bei Sonnenuntergang, ein Neubauprojekt der Apple Property Group AG",
         "knopfPrimaer": {
           "text": "Immobilien erkunden",
           "link": "/referenzen"
@@ -23,7 +23,7 @@
         "ueberzeile": "Über unser Unternehmen",
         "titel": "Ihr Partner für Immobilien.",
         "text": "Wir entwickeln, realisieren und vermarkten Immobilien. Von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung begleiten wir ausgewählte Immobilienprojekte entlang der gesamten Wertschöpfungskette.\n\nAls persönlich geführtes Unternehmen stehen wir für kurze Entscheidungswege, individuelle Lösungen und nachhaltige Werte.",
-        "bild": "/bilder/startseite/bloecke/1/value/bild.jpg",
+        "bild": "/bilder/startseite/bloecke/1/value/terrasse-seeblick-guettingen.webp",
         "bildAlt": "Terrasse mit Blick auf den Bodensee in der Quartierentwicklung Güttingen, ein Projekt der Apple Property Group AG",
         "bildPosition": "rechts",
         "knopf": {

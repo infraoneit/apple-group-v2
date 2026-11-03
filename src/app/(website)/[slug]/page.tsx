@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import { BlockRenderer, ersterBlockHatH1 } from '@/components/bloecke/BlockRenderer';
 import { Seitenkopf } from '@/components/ui/Seitenkopf';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { DOMAIN } from '@/site.config';
 import { holeAlleSeiten, holeEinstellungen, holeSeite } from '@/lib/cms';
 import { metadaten } from '@/lib/seo';
 
@@ -29,7 +31,20 @@ export default async function Seite({ params }: Props) {
   const mitSeitenkopf = !ersterBlockHatH1(seite.bloecke);
   return (
     <>
-      {mitSeitenkopf ? <Seitenkopf titel={seite.titel} pfad={[{ text: seite.titel, href: `/${slug}` }]} /> : null}
+      {mitSeitenkopf ? (
+        <Seitenkopf titel={seite.titel} pfad={[{ text: seite.titel, href: `/${slug}` }]} />
+      ) : (
+        <JsonLd
+          daten={{
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Startseite', item: `${DOMAIN}/` },
+              { '@type': 'ListItem', position: 2, name: seite.titel, item: `${DOMAIN}/${slug}` },
+            ],
+          }}
+        />
+      )}
       <BlockRenderer bloecke={seite.bloecke} einstellungen={e} seitentitel={seite.titel} hatSeitenkopf={mitSeitenkopf} />
     </>
   );

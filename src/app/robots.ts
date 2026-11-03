@@ -13,7 +13,11 @@ export default function robots(): MetadataRoute.Robots {
   }
 
   return {
-    rules: [{ userAgent: '*', allow: '/', disallow: ['/keystatic', '/api/'] }],
+    rules: [
+      { userAgent: '*', allow: '/', disallow: ['/keystatic', '/api/'] },
+      // KI-Suchsysteme dürfen die Inhalte lesen und als Quelle nennen
+      { userAgent: ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended'], allow: '/', disallow: ['/keystatic', '/api/'] },
+    ],
     sitemap: new URL('/sitemap.xml', DOMAIN).toString(),
   };
 }

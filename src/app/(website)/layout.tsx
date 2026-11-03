@@ -21,15 +21,29 @@ export default async function WebsiteLayout({ children }: { children: React.Reac
 
   const organisation = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['RealEstateAgent', 'LocalBusiness', 'Organization'],
     '@id': `${DOMAIN}/#organisation`,
     name: e.firmenname,
+    legalName: e.firmenname,
     description: sauberText(e.kurzbeschreibung),
     url: DOMAIN,
     telephone: e.telefon,
     email: e.email,
     logo: e.logo ? new URL(e.logo, DOMAIN).toString() : undefined,
     image: e.ogbild ? new URL(e.ogbild, DOMAIN).toString() : undefined,
+    // Angaben aus dem Handelsregister des Kantons Thurgau (siehe Impressum)
+    foundingDate: '2012-07-02',
+    vatID: 'CHE-475.850.326',
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Kanton Thurgau' },
+      { '@type': 'Place', name: 'Region Bodensee' },
+      { '@type': 'City', name: 'Winterthur' },
+    ],
+    knowsAbout: ['Immobilienentwicklung', 'Realisierung von Immobilienprojekten', 'Immobilienvermarktung', 'Immobilienbewirtschaftung'],
+    makesOffer: ['Immobilienentwicklung', 'Realisierung', 'Vermarktung', 'Bewirtschaftung'].map((name) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name, provider: { '@id': `${DOMAIN}/#organisation` } },
+    })),
     address: {
       '@type': 'PostalAddress',
       streetAddress: e.strasse,

@@ -12,7 +12,7 @@
         "ueberzeile": "Über uns",
         "titel": "«Träume verwirklichen durch Transparenz, Innovation und Vertrauen.»",
         "text": "Die Apple Property Group AG steht für ganzheitliche Immobilienkompetenz.",
-        "bild": "/bilder/seiten/ueber-uns/bloecke/0/value/bild.jpg",
+        "bild": "/bilder/seiten/ueber-uns/bloecke/0/value/wohnueberbauung-guettingen-apple-property-group.webp",
         "bildAlt": "Luftaufnahme der neuen Wohnüberbauung mit begrünten Dächern und Solaranlagen in Güttingen, ein Projekt der Apple Property Group AG",
         "knopfPrimaer": {},
         "knopfSekundaer": {},
@@ -25,7 +25,7 @@
       "value": {
         "titel": "Von der Entwicklung bis zur Bewirtschaftung",
         "text": "Von der Entwicklung über die Realisierung bis zur Vermarktung und Bewirtschaftung begleiten wir ausgewählte Immobilienprojekte entlang der gesamten Wertschöpfungskette.\n\nDabei verbinden wir Immobilien-, Finanz- und Rechtsexpertise, um für unsere Kunden nachhaltige Werte und individuelle Lösungen zu schaffen. Die Apple Property Group AG wird inhaberbezogen geführt und begleitet Immobilien von der ersten Idee über die Entwicklung und Planung bis zur Realisierung und weiteren Betreuung.",
-        "bild": "/bilder/seiten/ueber-uns/bloecke/1/value/bild.jpg",
+        "bild": "/bilder/seiten/ueber-uns/bloecke/1/value/wohnhaeuser-innenhof-visualisierung.webp",
         "bildAlt": "Architekturvisualisierung mehrerer Wohnhäuser mit begrüntem Innenhof, ein Immobilienprojekt der Apple Property Group AG",
         "bildPosition": "links",
         "knopf": {}
@@ -40,11 +40,11 @@
           {
             "name": "Natalie C. S. Piller, lic. iur. Uni Zürich",
             "funktion": "Geschäftsinhaberin und Geschäftsführerin",
-            "foto": "/bilder/seiten/ueber-uns/bloecke/2/value/personen/0/foto.jpg"
+            "foto": "/bilder/seiten/ueber-uns/bloecke/2/value/personen/0/natalie-piller-geschaeftsfuehrerin-apple-property-group.webp"
           }
         ],
         "text": "Hinter jedem erfolgreichen Immobilienprojekt steht ein starkes Team. Wir verbinden Fachkompetenz mit Engagement und einem hohen Anspruch an die Qualität.",
-        "gruppenbild": "/bilder/seiten/ueber-uns/bloecke/2/value/gruppenbild.jpg",
+        "gruppenbild": "/bilder/seiten/ueber-uns/bloecke/2/value/team-apple-property-group-taegerwilen.webp",
         "gruppenbildAlt": "Das Team der Apple Property Group AG bei der gemeinsamen Planung im Büro"
       }
     },

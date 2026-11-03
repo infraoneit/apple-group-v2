@@ -17,6 +17,7 @@ export async function metadaten({
   seo,
   beschreibungFallback,
   bild,
+  bildAlt,
   ohneIndex,
 }: {
   pfad: string;
@@ -24,6 +25,8 @@ export async function metadaten({
   seo?: SeoFelder;
   beschreibungFallback?: string;
   bild?: string | null;
+  /** Beschreibung des Vorschaubilds für soziale Netzwerke */
+  bildAlt?: string;
   ohneIndex?: boolean;
 }): Promise<Metadata> {
   const e = await holeEinstellungen();
@@ -43,7 +46,7 @@ export async function metadaten({
       siteName: e.firmenname,
       title: titel,
       description: beschreibung,
-      images: ogBild ? [{ url: ogBild }] : undefined,
+      images: ogBild ? [{ url: ogBild, width: 1200, height: 630, alt: bildAlt || e.firmenname }] : undefined,
     },
   };
 }

@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Seitenkopf } from '@/components/ui/Seitenkopf';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { DOMAIN } from '@/site.config';
 import { Galerie } from '@/components/ui/Galerie';
 import { ReferenzKarte } from '@/components/karten/Karten';
 import { Kontaktaufruf } from '@/components/bloecke/Kontaktaufruf';
@@ -19,7 +21,8 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const r = await holeReferenz(slug);
   if (!r) return {};
-  return metadaten({ pfad: `/referenzen/${slug}`, seitentitel: r.titel, seo: r.seo, beschreibungFallback: r.kurzbeschreibung, bild: r.titelbild });
+  // Vorschaubild als JPG (1200 x 630), weil nicht alle sozialen Netzwerke WebP anzeigen
+  return metadaten({ pfad: `/referenzen/${slug}`, seitentitel: r.titel, seo: r.seo, beschreibungFallback: r.kurzbeschreibung, bild: `/bilder/referenzen/${slug}/vorschau.jpg`, bildAlt: r.titelbildAlt });
 }
 
 export default async function ReferenzSeite({ params }: Props) {
@@ -31,8 +34,22 @@ export default async function ReferenzSeite({ params }: Props) {
 
   const bilder = [{ bild: r.titelbild, alt: r.titelbildAlt }, ...r.galerie];
 
+  // Strukturierte Daten: die Projektseite als Bildergalerie mit Bezug zur Firma
+  const galerieDaten = {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: r.titel,
+    description: r.kurzbeschreibung,
+    url: `${DOMAIN}/referenzen/${slug}`,
+    inLanguage: 'de-CH',
+    about: { '@type': 'Place', name: `${r.titel}`, address: { '@type': 'PostalAddress', addressLocality: r.ort, addressCountry: 'CH' } },
+    creator: { '@id': `${DOMAIN}/#organisation` },
+    image: bilder.map((b) => ({ '@type': 'ImageObject', contentUrl: new URL(b.bild, DOMAIN).toString(), caption: b.alt })),
+  };
+
   return (
     <>
+      <JsonLd daten={galerieDaten} />
       <Seitenkopf
         ueberzeile={r.kategorie || undefined}
         titel={r.titel}
