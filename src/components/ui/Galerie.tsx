@@ -12,6 +12,11 @@ type Bild = { bild: string; alt: string };
  * Vitrine. Scrollt nativ per Scroll-Snap (Touch, Trackpad), Pfeile, Punkte und
  * Pfeiltasten sind zusätzliche, gleichwertige Kontrollen. Bei einem Bild ohne Kontrollen,
  * bleibt dann ein einzelnes gerahmtes Bild wie ein klassischer Seiten-Hero.
+ *
+ * Jedes Bild wird vollständig gezeigt, nie beschnitten: der Rahmen hat für alle Bilder
+ * dasselbe Format, das Bild liegt darin eingepasst, und den Rest der Fläche füllt eine
+ * unscharfe, abgedunkelte Fassung desselben Bildes. So wirken Hochformate und Detailfotos
+ * genauso ruhig wie Querformate, und nichts geht verloren.
  */
 type Props = {
   bilder: readonly Bild[];
@@ -20,7 +25,7 @@ type Props = {
   seitenverhaeltnis?: string;
 };
 
-export function Galerie({ bilder, sizes = '100vw', seitenverhaeltnis = 'aspect-[16/10] lg:aspect-[16/9]' }: Props) {
+export function Galerie({ bilder, sizes = '100vw', seitenverhaeltnis = 'aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9]' }: Props) {
   const scroller = useRef<HTMLDivElement>(null);
   const [aktiv, setAktiv] = useState(0);
   const mehrereBilder = bilder.length > 1;
@@ -66,15 +71,28 @@ export function Galerie({ bilder, sizes = '100vw', seitenverhaeltnis = 'aspect-[
         className="galerie-scroller flex snap-x snap-mandatory overflow-x-auto"
       >
         {bilder.map((b, i) => (
-          <div key={i} className={cn('relative w-full shrink-0 snap-center px-1 first:pl-0 last:pr-0 sm:px-2', seitenverhaeltnis)}>
+          <div
+            key={i}
+            className={cn('relative max-h-[min(78svh,1040px)] w-full shrink-0 snap-center px-1 first:pl-0 last:pr-0 sm:px-2', seitenverhaeltnis)}
+          >
             <div className="vitrine-licht" />
-            <div className="vitrine-rahmen h-full">
+            <div className="vitrine-rahmen h-full bg-flaeche-dunkel">
+              {/* Unscharfe Fassung als Hintergrund, nur eine kleine Bildvariante, da ohnehin verwischt */}
+              <Image
+                src={b.bild}
+                alt=""
+                aria-hidden
+                fill
+                sizes="320px"
+                className="scale-110 object-cover opacity-45 blur-2xl"
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
               <Image
                 src={b.bild}
                 alt={b.alt}
                 fill
                 sizes={sizes}
-                className="object-cover"
+                className="object-contain"
                 loading={i === 0 ? 'eager' : 'lazy'}
                 fetchPriority={i === 0 ? 'high' : undefined}
               />

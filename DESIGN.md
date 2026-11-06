@@ -161,6 +161,8 @@ Felder folgen dem Umschalter (`bg-grund`, `border-linie`, Fokusrahmen in Akzent)
 ### Galerie (Karussell)
 `Galerie.tsx`: der Bild-Hero der Projekt-Detailseite. Titelbild und alle Galeriebilder aus Keystatic bilden zusammen ein Karussell (kein separates Titelbild mehr über einer eigenen "Bilder"-Sektion, seit dem 24. September 2026 zusammengeführt). Ein Bild pro Ansicht im `.vitrine-rahmen` mit `.vitrine-licht`, scrollt nativ per Scroll-Snap (Touch, Trackpad), dazu Pfeil-Knöpfe, Punkte und ein Zähler ("2 / 8") als gleichwertige, tastaturbedienbare Kontrollen (Pfeiltasten, wenn das Karussell fokussiert ist). Bei genau einem Bild (kein Galeriebild vorhanden) fallen Pfeile, Punkte und Zähler weg, es bleibt beim einzelnen gerahmten Titelbild wie zuvor.
 
+Kein Bild wird beschnitten (seit 6. November 2026): der Rahmen hat für alle Bilder dasselbe Format (4:3, ab `sm` 16:10, ab `lg` 16:9, höchstens 78 svh hoch), das Bild liegt darin mit `object-contain`, und die restliche Fläche füllt eine unscharfe, abgedunkelte Fassung desselben Bildes (kleine Bildvariante, `blur-2xl`, 45 Prozent Deckkraft). Hochformate und Detailfotos erscheinen so vollständig und wirken trotzdem einheitlich. Die Kundschaft kann also jedes Format hochladen, Querformat 3:2 füllt den Rahmen am besten.
+
 ### Umschalter
 `ThemeUmschalter.tsx` in der Kopfzeile, Mondsymbol im dunklen, Sonnensymbol im hellen Modus, 44 px Klickfläche, `aria-pressed` und beschreibendes `aria-label`. Setzt `data-theme="light"` auf `<html>` und merkt die Wahl in `localStorage`. Ein kleines Inline-Skript in `layout.tsx` setzt das Attribut bereits vor dem ersten Rendern, damit beim Laden kein Farbwechsel-Blitz sichtbar wird.
 

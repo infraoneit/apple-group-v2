@@ -71,7 +71,7 @@ export default async function ReferenzSeite({ params }: Props) {
           aria-hidden
         />
         <div className="container-seite relative">
-          <Galerie bilder={bilder} sizes="(min-width: 2400px) 2304px, 100vw" seitenverhaeltnis="aspect-[16/9] lg:aspect-[21/9]" />
+          <Galerie bilder={bilder} sizes="(min-width: 2400px) 2304px, 100vw" />
         </div>
       </div>
 
