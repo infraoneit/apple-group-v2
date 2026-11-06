@@ -2,7 +2,18 @@ import Image from 'next/image';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import type { Einstellungen } from '@/lib/cms';
 
-export function Kontaktdaten({ einstellungen: e, bild, bildAlt }: { einstellungen: Einstellungen; bild?: string | null; bildAlt?: string }) {
+export function Kontaktdaten({
+  einstellungen: e,
+  bild,
+  bildAlt,
+  hinweis,
+}: {
+  einstellungen: Einstellungen;
+  bild?: string | null;
+  bildAlt?: string;
+  /** Kleine Zeile unter dem Foto, z. B. zu Besucherparkplätzen */
+  hinweis?: string;
+}) {
   return (
     <aside className="h-fit rounded-[var(--radius-karte)] bg-flaeche p-8 lg:sticky lg:top-36 lg:p-10">
       <h3 className="titel-3">{e.firmenname}</h3>
@@ -52,6 +63,7 @@ export function Kontaktdaten({ einstellungen: e, bild, bildAlt }: { einstellunge
           <Image src={bild} alt={bildAlt ?? ''} fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" />
         </div>
       ) : null}
+      {hinweis ? <p className={`text-sm text-text-leise ${bild ? 'mt-3' : 'mt-6'}`}>{hinweis}</p> : null}
     </aside>
   );
 }

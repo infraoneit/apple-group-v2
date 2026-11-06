@@ -326,7 +326,7 @@ export function seitenBloecke(bildOrdner: string) {
           kontaktdatenZeigen: fields.checkbox({ label: 'Adresse, Telefon und Öffnungszeiten daneben zeigen', defaultValue: true }),
           bild: bild('Foto des Standorts', bildOrdner, { hinweis: 'Erscheint unten im Kasten mit den Kontaktangaben, Querformat. Kann leer bleiben.' }),
           bildAlt: alttext(),
-          hinweis: text('Hinweis', { max: 160, beschreibung: 'Kleine Zeile unter der Karte, z. B. zu Besucherparkplätzen. Kann leer bleiben.' }),
+          hinweis: text('Hinweis', { max: 160, beschreibung: 'Kleine Zeile unter dem Foto im Kasten mit den Kontaktangaben, z. B. zu Besucherparkplätzen. Kann leer bleiben.' }),
         }),
       },
     },

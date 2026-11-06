@@ -20,9 +20,11 @@ export function Standortkarte({ daten: d, einstellungen: e }: { daten: BlockDate
           <div className="mt-10">
             <KartenEinbettung adresse={adresse} titel={`Karte: ${e.firmenname}, ${adresse}`} />
           </div>
-          {d.hinweis ? <p className="mt-6 text-sm text-text-leise">{sauberText(d.hinweis)}</p> : null}
+          {!d.kontaktdatenZeigen && d.hinweis ? <p className="mt-6 text-sm text-text-leise">{sauberText(d.hinweis)}</p> : null}
         </div>
-        {d.kontaktdatenZeigen ? <Kontaktdaten einstellungen={e} bild={d.bild} bildAlt={d.bildAlt} /> : null}
+        {d.kontaktdatenZeigen ? (
+          <Kontaktdaten einstellungen={e} bild={d.bild} bildAlt={d.bildAlt} hinweis={d.hinweis ? sauberText(d.hinweis) : undefined} />
+        ) : null}
       </div>
     </section>
   );
