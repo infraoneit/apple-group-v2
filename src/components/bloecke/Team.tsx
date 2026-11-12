@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Mail, Phone, UserRound } from 'lucide-react';
 import { AbschnittKopf } from '@/components/ui/AbschnittKopf';
 import { sauberText } from '@/lib/text';
+import { cn } from '@/lib/cn';
 import type { BlockDaten } from './BlockRenderer';
 
 type Person = BlockDaten<'team'>['personen'][number];
@@ -55,14 +56,15 @@ function Portrait({ p, sizes, eager = false }: { p: Person; sizes: string; eager
  * einzelnen Stück), ab zwei Personen ein Raster.
  */
 export function Team({ daten: d }: { daten: BlockDaten<'team'> }) {
+  const bildLinks = d.bildPosition !== 'rechts';
   // Ohne Personen, aber mit Gruppenbild: heller Abschnitt mit Titel, Einleitung und grossem Teambild
   if (d.personen.length === 0) {
     if (!d.gruppenbild) return null;
     return (
       <section className="abschnitt">
         <div className="container-seite grid items-center gap-12 lg:grid-cols-2 lg:gap-20 2xl:gap-28">
-          <AbschnittKopf ueberzeile={d.ueberzeile} titel={d.titel} text={d.text} className="mb-0 lg:mb-0" />
-          <div className="relative aspect-[4/3]" data-einblenden>
+          <AbschnittKopf ueberzeile={d.ueberzeile} titel={d.titel} text={d.text} className={cn('mb-0 lg:mb-0', bildLinks && 'lg:order-2')} />
+          <div className={cn('relative aspect-[4/3]', bildLinks && 'lg:order-1')} data-einblenden>
             <div className="vitrine-licht" />
             <div className="vitrine-rahmen h-full">
               <Image src={d.gruppenbild} alt={d.gruppenbildAlt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
@@ -77,8 +79,13 @@ export function Team({ daten: d }: { daten: BlockDaten<'team'> }) {
     const p = d.personen[0];
     return (
       <section className="abschnitt bg-flaeche-dunkel text-text-hell">
-        <div className="container-seite grid items-center gap-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20 2xl:gap-28">
-          <div className="mx-auto w-full max-w-md md:max-w-none lg:max-w-lg" data-einblenden>
+        <div
+          className={cn(
+            'container-seite grid items-center gap-12 lg:gap-20 2xl:gap-28',
+            bildLinks ? 'md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]' : 'md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]'
+          )}
+        >
+          <div className={cn('mx-auto w-full max-w-md md:max-w-none lg:max-w-lg', !bildLinks && 'md:order-2 lg:ml-auto lg:mr-0')} data-einblenden>
             <Portrait p={p} sizes="(min-width: 1024px) 512px, (min-width: 768px) 40vw, 100vw" />
           </div>
           <div className="max-w-2xl" data-einblenden>

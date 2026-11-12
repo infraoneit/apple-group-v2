@@ -229,6 +229,15 @@ export function seitenBloecke(bildOrdner: string) {
           ),
           gruppenbild: bild('Gruppenbild', bildOrdner, { hinweis: 'Querformat. Erscheint unter den Personen. Ohne Personen zeigt der Abschnitt nur Titel, Einleitung und dieses Bild. Kann leer bleiben.' }),
           gruppenbildAlt: alttext(),
+          bildPosition: fields.select({
+            label: 'Bildposition',
+            description: 'Gilt für eine einzelne Person und für das Gruppenbild ohne Personen. Am besten abwechselnd zum Abschnitt davor.',
+            options: [
+              { label: 'Links', value: 'links' },
+              { label: 'Rechts', value: 'rechts' },
+            ],
+            defaultValue: 'links',
+          }),
         }),
       },
 

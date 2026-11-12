@@ -42,7 +42,8 @@
             "funktion": "Geschäftsinhaberin und Geschäftsführerin",
             "foto": "/bilder/seiten/ueber-uns/bloecke/2/value/personen/0/natalie-piller-geschaeftsfuehrerin-apple-property-group.webp"
           }
-        ]
+        ],
+        "bildPosition": "rechts"
       }
     },
     {
@@ -53,7 +54,8 @@
         "text": "Hinter jedem erfolgreichen Immobilienprojekt steht ein starkes Team. Wir verbinden Fachkompetenz mit Engagement und einem hohen Anspruch an die Qualität.",
         "personen": [],
         "gruppenbild": "/bilder/seiten/ueber-uns/bloecke/3/value/team-apple-property-group-taegerwilen.webp",
-        "gruppenbildAlt": "Das Team der Apple Property Group AG bei der gemeinsamen Planung im Büro in Tägerwilen"
+        "gruppenbildAlt": "Das Team der Apple Property Group AG bei der gemeinsamen Planung im Büro in Tägerwilen",
+        "bildPosition": "links"
       }
     },
     {
