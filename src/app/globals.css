@@ -276,10 +276,6 @@
       0 0 0 1px var(--vitrine-schatten-innen) inset,
       0 40px 100px -30px var(--vitrine-schatten);
   }
-  /* Gitterraster der Startbereiche und der Projekt-Galerie: nur im dunklen Modus, im hellen Modus ruhige Fläche */
-  :root[data-theme='light'] .hero-raster {
-    display: none;
-  }
   .vitrine-licht {
     @apply pointer-events-none absolute inset-0 -z-10;
     background: radial-gradient(65% 60% at 50% 40%, color-mix(in srgb, var(--color-gold) 32%, transparent), transparent 72%);

@@ -28,18 +28,6 @@ export async function Hero(props: Props) {
   return props.daten.variante === 'geteilt' ? <HeroGeteilt {...props} vorschau={vorschau} /> : <HeroVollbild {...props} vorschau={vorschau} />;
 }
 
-/** Gitterraster im Hintergrund, nur im dunklen Modus sichtbar (siehe .hero-raster in globals.css) */
-function Raster({ className }: { className: string }) {
-  return (
-    <div
-      className={cn(
-        'hero-raster pointer-events-none absolute inset-0 opacity-[0.5] [background-image:linear-gradient(var(--color-linie-dunkel)_1px,transparent_1px),linear-gradient(90deg,var(--color-linie-dunkel)_1px,transparent_1px)]',
-        className
-      )}
-      aria-hidden
-    />
-  );
-}
 
 function HeroBild({ d, istErster, vorschau, sizes }: { d: BlockDaten<'hero'>; istErster: boolean; vorschau?: string; sizes: string }) {
   if (!d.bild) return null;
@@ -88,7 +76,6 @@ function HeroVollbild({ daten: d, istErster, pfad, vorschau }: InnenProps) {
 
   return (
     <section className="relative overflow-hidden bg-flaeche-dunkel text-text-hell">
-      <Raster className="[background-size:96px_96px] [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]" />
       {pfad ? (
         <div className="container-seite relative pt-8 lg:pt-10">
           <Brotkrumen pfad={pfad} hell />
@@ -140,7 +127,6 @@ function HeroGeteilt({ daten: d, istErster, pfad, vorschau }: InnenProps) {
 
   return (
     <section className="relative overflow-hidden bg-flaeche-dunkel text-text-hell">
-      <Raster className="[background-size:80px_80px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       {pfad ? (
         <div className="container-seite relative pt-8 lg:pt-10">
           <Brotkrumen pfad={pfad} hell />

@@ -70,10 +70,6 @@ export default async function ReferenzSeite({ params }: Props) {
       />
 
       <div className="relative bg-flaeche-dunkel pt-12 pb-16 lg:pt-16 lg:pb-20">
-        <div
-          className="hero-raster pointer-events-none absolute inset-0 opacity-[0.5] [background-image:linear-gradient(var(--color-linie-dunkel)_1px,transparent_1px),linear-gradient(90deg,var(--color-linie-dunkel)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:radial-gradient(70%_70%_at_50%_50%,black,transparent)]"
-          aria-hidden
-        />
         <div className="container-seite relative">
           <Galerie bilder={bilder} sizes="(min-width: 2400px) 2304px, 100vw" />
         </div>
