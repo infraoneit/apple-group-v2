@@ -76,8 +76,9 @@ function HeroVollbild({ daten: d, istErster, pfad, vorschau }: InnenProps) {
 
   return (
     <section className="relative overflow-hidden bg-flaeche-dunkel text-text-hell">
+      {/* Gleiche Abstände wie im Seitenkopf der anderen Unterseiten (Seitenkopf.tsx) */}
       {pfad ? (
-        <div className="container-seite relative pt-8 lg:pt-10">
+        <div className="container-seite relative pt-10 lg:pt-14">
           <Brotkrumen pfad={pfad} hell />
         </div>
       ) : null}
@@ -85,7 +86,7 @@ function HeroVollbild({ daten: d, istErster, pfad, vorschau }: InnenProps) {
         className={cn(
           'container-seite relative flex flex-col items-center text-center',
           gross ? 'pt-20 pb-16 lg:pt-28 lg:pb-24' : 'pt-16 pb-12 lg:pt-20 lg:pb-16',
-          pfad && 'pt-10 lg:pt-12'
+          pfad && 'pt-10 lg:pt-14'
         )}
       >
         <div className="max-w-3xl animate-einblenden">
@@ -127,8 +128,9 @@ function HeroGeteilt({ daten: d, istErster, pfad, vorschau }: InnenProps) {
 
   return (
     <section className="relative overflow-hidden bg-flaeche-dunkel text-text-hell">
+      {/* Gleiche Abstände wie im Seitenkopf der anderen Unterseiten (Seitenkopf.tsx) */}
       {pfad ? (
-        <div className="container-seite relative pt-8 lg:pt-10">
+        <div className="container-seite relative pt-10 lg:pt-14">
           <Brotkrumen pfad={pfad} hell />
         </div>
       ) : null}
@@ -136,7 +138,7 @@ function HeroGeteilt({ daten: d, istErster, pfad, vorschau }: InnenProps) {
         className={cn(
           'container-seite relative grid items-center gap-12 lg:grid-cols-2 lg:gap-20 2xl:gap-28',
           gross ? 'py-16 lg:py-24' : 'py-12 lg:py-16',
-          pfad && 'pt-8 lg:pt-10'
+          pfad && 'pt-10 lg:pt-14'
         )}
       >
         <div className="max-w-3xl animate-einblenden">
