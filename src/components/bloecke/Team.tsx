@@ -55,7 +55,23 @@ function Portrait({ p, sizes, eager = false }: { p: Person; sizes: string; eager
  * einzelnen Stück), ab zwei Personen ein Raster.
  */
 export function Team({ daten: d }: { daten: BlockDaten<'team'> }) {
-  if (d.personen.length === 0) return null;
+  // Ohne Personen, aber mit Gruppenbild: heller Abschnitt mit Titel, Einleitung und grossem Teambild
+  if (d.personen.length === 0) {
+    if (!d.gruppenbild) return null;
+    return (
+      <section className="abschnitt">
+        <div className="container-seite">
+          <AbschnittKopf ueberzeile={d.ueberzeile} titel={d.titel} text={d.text} />
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9]" data-einblenden>
+            <div className="vitrine-licht" />
+            <div className="vitrine-rahmen h-full">
+              <Image src={d.gruppenbild} alt={d.gruppenbildAlt} fill sizes="(min-width: 2400px) 2304px, 100vw" className="object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   if (d.personen.length === 1) {
     const p = d.personen[0];

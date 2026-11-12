@@ -4,11 +4,24 @@ import { ArrowRight, MapPin, Clock } from 'lucide-react';
 import type { Job, Leistung, Referenz } from '@/lib/cms';
 import { cn } from '@/lib/cn';
 import { sauberText } from '@/lib/text';
+import { unscharfeVorschau } from '@/lib/bildvorschau';
 
 /** Grössenangaben für next/image, passend zu rasterFuerKacheln (1, 2, 3 oder 4 Spalten). */
 const KARTEN_SIZES = '(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw';
 
 type Ebene = 'h2' | 'h3';
+
+/**
+ * Titel für die Projektkarte: steht der Ort schon in der kleinen Zeile darüber (z. B. "Neubau  Ermatingen"),
+ * fällt er am Ende des Titels weg ("Zwei Mehrfamilienhäuser, Ermatingen" wird "Zwei Mehrfamilienhäuser").
+ * Auf der Projektseite selbst bleibt der volle Titel.
+ */
+export function kartentitel(titel: string, ort: string | null | undefined, ortSichtbar: boolean): string {
+  const t = sauberText(titel);
+  if (!ortSichtbar || !ort) return t;
+  const endung = `, ${sauberText(ort)}`;
+  return t.endsWith(endung) && t.length > endung.length ? t.slice(0, -endung.length).trim() : t;
+}
 
 /**
  * Kachelraster ohne leere Spalten: 4 Spalten auf grossen Bildschirmen nur,
@@ -20,7 +33,7 @@ export function rasterFuerKacheln(anzahl: number) {
 }
 
 /** Jedes Projekt liegt wie ein einzelnes Stück in seiner eigenen Vitrine: gerahmt, mit einem Lichtkreis dahinter. */
-export function ReferenzKarte({
+export async function ReferenzKarte({
   referenz: r,
   titelEbene = 'h3',
   sizes = KARTEN_SIZES,
@@ -36,6 +49,8 @@ export function ReferenzKarte({
   ortZeigen?: boolean;
 }) {
   const Titel = titelEbene;
+  // Winzige unscharfe Vorschau im HTML, damit die Kachel sofort ein Bild zeigt
+  const vorschau = await unscharfeVorschau(r.titelbild);
   return (
     <article data-einblenden className="group relative flex flex-col">
       <div className="relative aspect-[4/3]">
@@ -47,6 +62,8 @@ export function ReferenzKarte({
             fill
             sizes={sizes}
             loading={sofort ? 'eager' : 'lazy'}
+            placeholder={vorschau ? 'blur' : 'empty'}
+            blurDataURL={vorschau}
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
         </div>
@@ -57,7 +74,7 @@ export function ReferenzKarte({
       </div>
       <Titel className="titel-3 mt-2 text-text-hell">
         <Link href={`/referenzen/${r.slug}`} className="after:absolute after:inset-0">
-          {sauberText(r.titel)}
+          {kartentitel(r.titel, r.ort, ortZeigen)}
         </Link>
       </Titel>
       <p className="mt-2 line-clamp-3 text-text-hell-leise">{sauberText(r.kurzbeschreibung)}</p>

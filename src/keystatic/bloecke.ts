@@ -227,7 +227,7 @@ export function seitenBloecke(bildOrdner: string) {
             }),
             { label: 'Personen', itemLabel: (p) => p.fields.name.value || 'Person' }
           ),
-          gruppenbild: bild('Gruppenbild', bildOrdner, { hinweis: 'Querformat. Erscheint unter den Personen. Kann leer bleiben.' }),
+          gruppenbild: bild('Gruppenbild', bildOrdner, { hinweis: 'Querformat. Erscheint unter den Personen. Ohne Personen zeigt der Abschnitt nur Titel, Einleitung und dieses Bild. Kann leer bleiben.' }),
           gruppenbildAlt: alttext(),
         }),
       },

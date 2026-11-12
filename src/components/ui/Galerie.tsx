@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
-type Bild = { bild: string; alt: string };
+type Bild = { bild: string; alt: string; vorschau?: string };
 
 /**
  * Karussell-Galerie: ein Bild nach dem anderen, wie ein Stück nach dem nächsten in der
@@ -93,7 +93,9 @@ export function Galerie({ bilder, sizes = '100vw', seitenverhaeltnis = 'aspect-[
                 fill
                 sizes={sizes}
                 className="object-contain"
-                loading={i === 0 ? 'eager' : 'lazy'}
+                placeholder={b.vorschau ? 'blur' : 'empty'}
+                blurDataURL={b.vorschau}
+                loading={i < 2 ? 'eager' : 'lazy'}
                 fetchPriority={i === 0 ? 'high' : undefined}
               />
             </div>

@@ -16,6 +16,7 @@ import { Faq } from './Faq';
 import { Kontaktaufruf } from './Kontaktaufruf';
 import { Kontaktformular } from './Kontaktformular';
 import { Standortkarte } from './Standortkarte';
+import type { Pfadpunkt } from '@/components/ui/Brotkrumen';
 
 type Props = {
   bloecke: readonly Block[];
@@ -24,6 +25,8 @@ type Props = {
   seitentitel: string;
   /** true, wenn die Seite bereits einen sichtbaren Seitenkopf mit H1 zeigt */
   hatSeitenkopf?: boolean;
+  /** Brotkrumen für einen Startbereich als ersten Block (Unterseiten) */
+  pfad?: Pfadpunkt[];
 };
 
 /** Liefert der erste Block selbst einen H1 (Startbereich oder Fliesstext mit Titel)? */
@@ -42,7 +45,7 @@ export function ersterBlockHatH1(bloecke: readonly Block[]): boolean {
  * - Unterseiten sonst: sichtbarer Seitenkopf mit Brotkrumen (src/app/(website)/[slug]/page.tsx)
  * - Startseite sonst: unsichtbarer H1 mit dem Seitentitel (für Screenreader und Google)
  */
-export function BlockRenderer({ bloecke, einstellungen, seitentitel, hatSeitenkopf = false }: Props) {
+export function BlockRenderer({ bloecke, einstellungen, seitentitel, hatSeitenkopf = false, pfad }: Props) {
   const ersterIstTitelText = bloecke[0]?.discriminant === 'fliesstext' && Boolean(bloecke[0].value.titel);
   const brauchtH1 = !hatSeitenkopf && !ersterBlockHatH1(bloecke);
 
@@ -53,7 +56,7 @@ export function BlockRenderer({ bloecke, einstellungen, seitentitel, hatSeitenko
         const key = `${block.discriminant}-${index}`;
         switch (block.discriminant) {
           case 'hero':
-            return <Hero key={key} daten={block.value} istErster={index === 0} />;
+            return <Hero key={key} daten={block.value} istErster={index === 0} pfad={index === 0 ? pfad : undefined} />;
           case 'textMitBild':
             return <TextMitBild key={key} daten={block.value} />;
           case 'fliesstext':

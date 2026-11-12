@@ -45,7 +45,10 @@ export default async function Seite({ params }: Props) {
           }}
         />
       )}
-      <BlockRenderer bloecke={seite.bloecke} einstellungen={e} seitentitel={seite.titel} hatSeitenkopf={mitSeitenkopf} />
+      <BlockRenderer
+        bloecke={seite.bloecke} einstellungen={e} seitentitel={seite.titel} hatSeitenkopf={mitSeitenkopf}
+        pfad={mitSeitenkopf ? undefined : [{ text: seite.titel, href: `/${slug}` }]}
+      />
     </>
   );
 }
