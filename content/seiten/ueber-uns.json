@@ -36,11 +36,12 @@
       "value": {
         "ueberzeile": "Geschäftsführung",
         "titel": "Ihre Ansprechpartnerin",
+        "text": "Nach meinem erfolgreich abgeschlossenen Jurastudium an der Universität Zürich entdeckte ich während meiner juristischen Laufbahn meine Leidenschaft für Immobilien und deren Entwicklung.\n\n2012 gründete ich die Apple Property Group AG, die ich mit unternehmerischem Gespür, Weitblick und einem ausgeprägten Blick für Chancen und Potenziale aufgebaut habe. Ein besonderer Schwerpunkt unserer Tätigkeit liegt in der Entwicklung von Immobilienprojekten.\n\nImmobilien sind für mich weit mehr als Objekte: Sie stehen für Werte, Perspektiven und langfristige Entscheidungen.",
         "personen": [
           {
-            "name": "Natalie C. S. Piller, lic. iur. Uni Zürich",
-            "funktion": "Geschäftsinhaberin und Geschäftsführerin",
-            "foto": "/bilder/seiten/ueber-uns/bloecke/2/value/personen/0/natalie-piller-geschaeftsfuehrerin-apple-property-group.webp"
+            "name": "Natalie Piller, lic. iur.",
+            "funktion": "Gründerin und Geschäftsführerin",
+            "foto": "/bilder/seiten/ueber-uns/bloecke/2/value/personen/0/natalie-piller-gruenderin-geschaeftsfuehrerin.webp"
           }
         ],
         "bildPosition": "rechts"
@@ -53,7 +54,7 @@
         "titel": "Unser Team",
         "text": "Hinter jedem erfolgreichen Immobilienprojekt steht ein starkes Team. Wir verbinden Fachkompetenz mit Engagement und einem hohen Anspruch an die Qualität.",
         "personen": [],
-        "gruppenbild": "/bilder/seiten/ueber-uns/bloecke/3/value/team-apple-property-group-taegerwilen.webp",
+        "gruppenbild": "/bilder/seiten/ueber-uns/bloecke/3/value/team-apple-property-group-besprechung.webp",
         "gruppenbildAlt": "Das Team der Apple Property Group AG bei der gemeinsamen Planung im Büro in Tägerwilen",
         "bildPosition": "links"
       }

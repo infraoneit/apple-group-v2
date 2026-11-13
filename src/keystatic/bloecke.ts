@@ -211,7 +211,7 @@ export function seitenBloecke(bildOrdner: string) {
         schema: fields.object({
           ueberzeile: ueberzeile(),
           titel: text('Titel', { pflicht: true, max: 90 }),
-          text: langtext('Einleitung', { max: 280 }),
+          text: langtext('Einleitung', { max: 900, beschreibung: 'Bei einer Person erscheint der Text neben dem Porträt. Absätze mit einer Leerzeile trennen.' }),
           personen: fields.array(
             fields.object({
               name: text('Vorname und Name', { pflicht: true, max: 60 }),

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Mail, Phone, UserRound } from 'lucide-react';
 import { AbschnittKopf } from '@/components/ui/AbschnittKopf';
-import { sauberText } from '@/lib/text';
+import { absaetze, sauberText } from '@/lib/text';
 import { cn } from '@/lib/cn';
 import type { BlockDaten } from './BlockRenderer';
 
@@ -91,7 +91,11 @@ export function Team({ daten: d }: { daten: BlockDaten<'team'> }) {
           <div className="max-w-2xl" data-einblenden>
             {d.ueberzeile ? <p className="vitrine-plakette">{sauberText(d.ueberzeile)}</p> : null}
             <h2 className="titel-2 mt-3">{sauberText(d.titel)}</h2>
-            {d.text ? <p className="einleitung mt-6 text-text-hell-leise">{sauberText(d.text)}</p> : null}
+            {absaetze(d.text).map((a, i) => (
+              <p key={i} className={cn('text-text-hell-leise', i === 0 ? 'einleitung mt-6' : 'mt-4')}>
+                {a}
+              </p>
+            ))}
             <div className="mt-10 border-l border-gold/50 pl-6 lg:mt-12">
               <h3 className="titel-3 text-text-hell">{sauberText(p.name)}</h3>
               <p className="mt-2 text-text-hell-leise">{sauberText(p.funktion)}</p>
