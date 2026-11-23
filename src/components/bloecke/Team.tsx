@@ -64,7 +64,7 @@ export function Team({ daten: d }: { daten: BlockDaten<'team'> }) {
       <section className="abschnitt">
         <div className="container-seite grid items-center gap-12 lg:grid-cols-2 lg:gap-20 2xl:gap-28">
           <AbschnittKopf ueberzeile={d.ueberzeile} titel={d.titel} text={d.text} className={cn('mb-0 lg:mb-0', bildLinks && 'lg:order-2')} />
-          <div className={cn('relative aspect-[4/3]', bildLinks && 'lg:order-1')} data-einblenden>
+          <div className={cn('relative aspect-[16/10]', bildLinks && 'lg:order-1')} data-einblenden>
             <div className="vitrine-licht" />
             <div className="vitrine-rahmen h-full">
               <Image src={d.gruppenbild} alt={d.gruppenbildAlt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
